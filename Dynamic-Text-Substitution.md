@@ -141,7 +141,7 @@ A list of text substitutions for the `gym` field in the alarm section are below:
 | `<lng>`        | Longitude of the gym               |
 | `<lat_5>`       | Latitude rounded to 5 decimals of the gym                |
 | `<lng_5>`       | Longitude rounded to 5 decimals of the gym               |
-| `<gym_name>`   | Name of the gym                    |
+| `<name>`       | Name of the gym                    |
 | `<description>`  | Description of the gym           |
 | `<url>`        | URL of the gym                     |
 | `<gmaps>`      | Gmaps link to a pin of the gym     |
