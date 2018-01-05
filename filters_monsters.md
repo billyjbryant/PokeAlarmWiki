@@ -22,34 +22,37 @@ The `"monsters"` section has three distinct settings.
 | -------------------- |---------------------------------------------- |
 | enabled              | Process Monster Events only if `true`         |
 | defaults             | See [filters](fitlers#defaults) page on defaults|
-| filters              | See below parameters                           |
+| filters              | See below parameters,                           |
 
 ## Parameters
 
 Monster Filters can use the following parameters to filter Events:
 
-| Parameter            | Description                         | Example |
-| -------------------- |------------------------------------ |---------|
-| monsters | Array of allowed monsters, by id or name. | `[ "Bulbasaur", "2", 3 ]`|
-| min_dist | Min distance of event from set location in miles or meters (depending on settings). | `0.0` *|
-| max_dist | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` *|
-
-`*` - Floats can use `"inf"` to represent infinity
-
-To do:
-```json
-                "min_dist": 0, "max_dist": "inf",
-                "min_lvl": 0, "max_lvl": 40, "min_atk": 0, "max_atk": 15,
-                "min_def": 0, "max_def": 15, "min_sta": 0, "max_sta": 15,
-                "min_iv": 0.0, "max_iv": 100,
-                "form_ids": [ 0 ],
-                "quick_moves": [ "Vine Whip", "Tackle"],
-                "charge_moves": [ "Sludge Bomb", "Seed Bomb"],
-                "genders": [ "male", "female", "neutral"],
-                "min_height": 0, "max_height": "inf",
-                "min_weight": 0, "max_weight": "inf",
-                "sizes": [ "tiny", "small", "normal", "large", "big" ],
-                "geofences": [ "Central Park" ],
-                "custom_dts": { "key1": "value1", "key2": "value2" },
-                "is_missing_info": false
-```
+| Parameter   | Description                                  | Example |
+| ----------- |--------------------------------------------- |---------|
+| monsters    | Array of allowed monsters, by id or name.    | `[ "Bulbasaur", "2", 3 ]`|
+| min_dist    | Min distance of event from set location in miles or meters (depending on settings). | `0.0` *|
+| max_dist    | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` *|
+| min_lvl     | Minimum level of the monster.                | `0`     |
+| max_lvl     | Maximum level of the monster.                | `40`    |
+| min_atk     | Minimum attack IV of the monster.            | `0`     |
+| max_atk     | Maximum attack IV of the monster.            | `15`    |
+| min_def     | Minimum defense IV of the monster.           | `0`     |
+| max_def     | Maximum defense IV of the monster.           | `15`    |
+| min_sta     | Minimum stamina IV of the monster.           | `0`     |
+| max_sta     | Maximum stamina IV of the monster.           | `15`    |
+| min_iv      | Minimum total IV percentage of the monster.  | `0.0` * |
+| max_iv      | Maximum total IV percentage of the monster.  | `100.0` * |
+| form_ids    | Array of allowed form ids for a monster.     | `[ 0, "1" ]`   |
+| quick_moves | Accepted quick moves, by id or name.         | `[ "Vine Whip", "Tackle"]` |
+| charge_moves | Accepted charge moves, by id or name.       | `[ "Sludge Bomb", "Seed Bomb"]` |
+| min_height  | Minimum height of the monster.               | `0.0` * |
+| max_height  | Maximum height of the monster.               | `250.0` * |
+| min_weight  | Minimum weight of the monster.               | `0.0` * |
+| max_weight  | Maximum weight of the monster.               | `250.0` * |
+| sizes       | Array of acceptable sizes. Options: `"tiny", "small", "normal", "large", "big"` | `[ "tiny", "big" ]` |
+| gender       | Array of acceptable genders. Options: `"male", "female", "neutral"` | `[ "female" ]` |
+| geofences   | See [filters](fitlers#defaults) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
+| custom_dts  | See [filters](fitlers#defaults) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
+| is_missing_info | See [filters](fitlers#defaults) page on 'Missing Info' | `true` or `false` |
+\* Floats can use `"inf"` to represent infinity
