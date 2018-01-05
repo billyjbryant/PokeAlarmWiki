@@ -5,13 +5,21 @@
 
 ### **Settings**
 [Configuring PokeAlarm](configuring-pokeAlarm)   
-[Server Settings](server-settings)   
-[Filters](filters)    
+[Server Settings](server-settings)  
 [Alarms](alarms)  
 [Geofences](geofences)  
-[Managers](managers)  
+[Managers](managers)
 
-### **Services**  
+### **Filters**
+
+[Filters Overview](filters_overview)  
+[Monsters](filters_monsters)  
+[Stops](filters_stops)  
+[Gyms](filters_json)  
+[Eggs](filters_eggs)  
+[Raids](filters_raids)
+
+### **Alarms**
 [Discord](Discord)  
 [Facebook Pages](Facebook-Pages)  
 [Pushbullet](Pushbullet)   
