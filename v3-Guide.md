@@ -252,7 +252,7 @@ The list of arguments are below:
 | `-a ALARMS`, `--alarms ALARMS` | `alarms.json` | Alarms configuration file
 | `-gf GEOFENCES`, `--geofences GEOFENCES` | | file containing list of coordinates to define a geofence
 | `-l LOCATION`, `--location LOCATION` | | Location, can be an address or coordinates
-| `-L {de,en,es,fr,it,zh_hk}`, `--locale {de,en,es,fr,it,zh_hk}` | |Locale for Pokemon and Move names: default en, check locale folder for more options
+| `-L {de,en,es,fr,it,pt,zh_hk}`, `--locale {de,en,es,fr,it,pt,zh_hk}` | |Locale for Pokemon and Move names: default en, check locale folder for more options
 | `-u {metric,imperial}`, `--units {metric,imperial}` | | Specify either metric or imperial units to use for distance measurements.
 | `-tl TIMELIMIT`, `--timelimit TIMELIMIT` | | Minimum number of seconds remaining on a pokemon to send a notify
 | `-tz TIMEZONE`, `--timezone TIMEZONE` | |  Timezone used for notifications. Ex: `America/Los_Angeles`. Visit [this article](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid timezones.

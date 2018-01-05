@@ -380,7 +380,7 @@ Example: Filtering for female Venusaur or male Pikachu:
 ```
 
 ## Egg Filters
-You may filter eggs based on raid levels or choose to ignore all eggs.
+You may filter eggs based on raid levels, gym sponsorship, or choose to ignore all eggs.
 
 The raid levels go from 1 to 5, where 1 is easiest and 5 is a legendary raid.
 
@@ -391,12 +391,14 @@ These are filter settings that controls what kind of eggs will get an alarm.
 | `enabled`        | `"False"` | Set to `"True"` to enable egg alarms
 | `min_level`      | `"1"`   | Minimum raid level to send egg alarm
 | `max_level`      | `"5"` | Maximum raid level to send egg alarm
+| `sponsored_gym`  | `"False"` | Must be at sponsored gym to send egg alarm
 
 
 Example eggs filter:
 ```json
      "eggs": {
         "enabled":"True",
+        "sponsored_gym":"False",
         "min_level": "1",
         "max_level": "5"
     },
@@ -405,11 +407,17 @@ Example eggs filter:
 ## Raid Filters
 You may filter raids by the specific raid pokemons in a similar fashion as the pokemon filter.
 
-Raid filters has 3 sections: enabled, default pokemon filtering and individual pokemon filtering
+Raid filters has 4 sections: enabled, gym sponsorship, default pokemon filtering and individual pokemon filtering
+
+| Parameter        | Default | Description
+|:----------------:|:-------:|:-------
+| `enabled`        | `"False"` | Set to `"True"` to enable raid alarms
+| `sponsored_gym`  | `"False"` | Must be at sponsored gym to send raid alarm
 
 ```json
     "raids": {
         "enabled": "False",
+        "sponsored_gym":"False",
         "default": {
             "min_dist":"0", "max_dist":"inf", "min_cp": "0", "max_cp": "999999", "min_iv":"0", "max_iv":"100",
             "min_atk": "0", "max_atk":"15", "min_def": "0", "max_def":"15", "min_sta": "0", "max_sta":"15",

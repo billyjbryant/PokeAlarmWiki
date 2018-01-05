@@ -33,7 +33,7 @@ To get the most recent command line settings for your version, use the following
 usage: start_pokealarm.py [-h] [-cf CONFIG] [-d] [-H HOST] [-P PORT]
                           [-m MANAGER_COUNT] [-M MANAGER_NAME] [-k KEY]
                           [-f FILTERS] [-a ALARMS] [-gf GEOFENCES]
-                          [-l LOCATION] [-L {de,en,es,fr,it,ko,zh_hk}]
+                          [-l LOCATION] [-L {de,en,es,fr,it,ko,pt,zh_hk}]
                           [-u {metric,imperial}] [-tl TIMELIMIT]
                           [-ma MAX_ATTEMPTS] [-tz TIMEZONE]
                           [-ct {mem,file}]
@@ -59,7 +59,7 @@ optional arguments:
                         Alarms configuration file. default: None
   -l LOCATION, --location LOCATION
                         Location, can be an address or coordinates
-  -L {de,en,es,fr,it,ko,zh_hk}, --locale {de,en,es,fr,it,ko,zh_hk}
+  -L {de,en,es,fr,it,ko,pt,zh_hk}, --locale {de,en,es,fr,it,ko,pt,zh_hk}
                         Locale for Pokemon and Move names: default en, check
                         locale folder for more options
   -u {metric,imperial}, --units {metric,imperial}
