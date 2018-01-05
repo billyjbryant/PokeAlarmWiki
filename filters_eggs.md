@@ -27,3 +27,17 @@ The `"eggs"` section has three distinct settings.
 ## Parameters
 
 Egg Filters can use the following parameters to filter Egg Events:
+
+| Parameter   | Description                                  | Example |
+| ----------- |--------------------------------------------- |---------|
+| min_dist    | Min distance of event from set location in miles or meters (depending on settings). | `0.0` *|
+| max_dist    | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` *|
+| min_egg_lvl | Minimum level of the egg when hatched.       | `0`     |
+| max_egg_lvl | Maximum level of the egg when hatched.       | `5`     |
+| current_teams | List of allowed current teams, by id or name. | `[ "Instinct", "Mystic" ]` |
+| gym_name_contains | List of regex's required to be in the gym name.  | `[ "Sponsored" , "West\\sOak"]` |
+| geofences   | See [filters](fitlers#defaults) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
+| custom_dts  | See [filters](fitlers#defaults) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
+| is_missing_info | See [filters](fitlers#defaults) page on 'Missing Info' | `true` or `false` |
+
+\* Floats can use `"inf"` to represent infinity

@@ -37,4 +37,3 @@ Stop Filters can use the following parameters to filter Stop Events:
 | is_missing_info | See [filters](fitlers#defaults) page on 'Missing Info' | `true` or `false` |
 
 \* Floats can use `"inf"` to represent infinity
-

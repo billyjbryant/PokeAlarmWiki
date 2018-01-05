@@ -28,3 +28,28 @@ The `"gyms"` section has four distinct settings.
 ## Parameters
 
 Gym Filters can use the following parameters to filter Gym Events:
+
+The `"gyms"` section has three distinct settings.
+
+| Setting Name         | Description                                   |
+| -------------------- |---------------------------------------------- |
+| enabled              | Process Stop Events only if `true`         |
+| defaults             | See [filters](fitlers#defaults) page on defaults|
+| filters              | See below parameters                           |
+
+## Parameters
+
+Stop Filters can use the following parameters to filter Stop Events:
+
+| Parameter   | Description                                  | Example |
+| ----------- |--------------------------------------------- |---------|
+| min_dist    | Min distance of event from set location in miles or meters (depending on settings). | `0.0` *|
+| max_dist    | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` *|
+| old_teams   | List of allowed previous teams, by id or name. | `[ "Instinct", "Mystic" ]` |
+| new_team    | List of allowed new teams, by id or name.    | `[ "Valor", "Mystic" ]` |
+| gym_name_contains | List of regex's required to be in the gym name.  | `[ "Sponsored" , "West\\sOak"]` |
+| geofences   | See [filters](fitlers#defaults) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
+| custom_dts  | See [filters](fitlers#defaults) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
+| is_missing_info | See [filters](fitlers#defaults) page on 'Missing Info' | `true` or `false` |
+
+\* Floats can use `"inf"` to represent infinity
