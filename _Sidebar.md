@@ -12,12 +12,12 @@
 
 ### **Filters**
 
-[Filters Overview](filters_overview)  
-[Monsters](filters_monsters)  
-[Stops](filters_stops)  
-[Gyms](filters_json)  
-[Eggs](filters_eggs)  
-[Raids](filters_raids)
+[Overview](Filters-Overview)  
+[Monsters](Monster-Filters)  
+[Stops](Stop-Filters)  
+[Gyms](Gym-Filters)  
+[Eggs](Egg-Filters)  
+[Raids](Raid-Filters)
 
 ### **Alarms**
 [Discord](Discord)  
