@@ -55,4 +55,5 @@ Monster Filters can use the following parameters to filter Events:
 | geofences   | See [filters](fitlers#defaults) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
 | custom_dts  | See [filters](fitlers#defaults) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
 | is_missing_info | See [filters](fitlers#defaults) page on 'Missing Info' | `true` or `false` |
+
 \* Floats can use `"inf"` to represent infinity
