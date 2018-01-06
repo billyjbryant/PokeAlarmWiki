@@ -20,17 +20,16 @@ This patch contains several breaking changes including changes made to completel
 
 * **All**
     * All instances of `pkmn` replaced with `mon`
-	* `missing_info` changed to `is_missing_info`
-	* `is_missing_info` now correctly defaults to `False`
+    * `missing_info` - Multiple changes have been made, refer to [**Missing Info**](Filters-Overview.md#missing-info) for more details on new functionality.
 	* `image_url` changed to `gym_image`
-	* `custom_dts` added to pass a Custom Dynamic Text Substitution to the Alert system, see [**Custom DTS**](https://github.com/PokeAlarm/PokeAlarmWiki/blob/dev/Filters-Overview.md#custom-dts) for more details. 
-	
+	* `custom_dts` added to pass a Custom Dynamic Text Substitution to the Alert system, see [**Custom DTS**](Filters-Overview.md#custom-dts) for more details. 
+
 * **Gyms/Raids/Eggs**
-    * `gym_name_contains` - Added functionality to filter Gym/Raid/Egg events based on the cached name of the gym.  Requires `gym-info` to be enabled. 
+    * `gym_name_contains` - Added functionality to filter Gym/Raid/Egg events based on the cached name of the gym using a list of RegExs.  See (**Filters)[Gym-Filters.md#parameters] for more details.
 
 * **Gyms**
     * `min_slots` - Allows filtering gyms based on the minimum number of guard slots available.
-	* `max_slots` - Allows filtering gyms based on the maximum number of guard slots available.
+    * `max_slots` - Allows filtering gyms based on the maximum number of guard slots available.
 	
 * **Raids**
     * `min_lvl` & `max_lvl` changed to `min_raid_lvl` and `max_raid_lvl`
@@ -52,45 +51,45 @@ This patch contains several breaking changes including changes made to completel
 * **Twilio** now supports using an array of numbers for the `to` field in Alert configurations.
 
 
-### Data
+### Data Files
 
-* Added Gen3 Movesets to English Translation
-* Added Gen3 Movesets to Chinese Translation
+* Added Gen3 Movesets
 * Updated Kyogre and Groudon stats
+* Added Portugese language translations
 
 ### Dynamic Text Substitutions
 
 * **All**
-	* **Custom_DTS**
+    * **Custom_DTS**
         Added support for Custom DTS Fields to be passed using the `custom_dts` Filter
-	* `pkmn` changed to `mon_name`
-	* `pkmn_id` changed to `mon_id`
-	* `pkmn_id_3` changed to `mon_id_3`
+    * `pkmn` changed to `mon_name`
+    * `pkmn_id` changed to `mon_id`
+    * `pkmn_id_3` changed to `mon_id_3`
     * `gym_image_url` changed to `gym_image`
 
 * **Pokemon**
     * `tiny_rat` - Updated to use weight instead of size.
-	* `big_karp` - Updated to use weight instead of size.
-	* `enc_id` changed to `encounter_id`
-	* `form_id_3_or_empty` replaced with `form_id_3`
-	* `form_name` added to retrieve the name of a monster's form
+    * `big_karp` - Updated to use weight instead of size.
+    * `enc_id` changed to `encounter_id`
+    * `form_id_3_or_empty` replaced with `form_id_3`
+    * `form_name` added to retrieve the name of a monster's form
 
 * **Pokestops**
     * `id` changed to `stop_id`
 	
 * **Raids**
     * `team_leader` - Reports the name of the team leader of the team in control of the gym.
-	* `raid_level` changed to `raid_lvl`
-	* `raid_end` changed to `raid_time_left`
+    * `raid_level` changed to `raid_lvl`
+    * `raid_end` changed to `raid_time_left`
 	
 * **Eggs**
     * `raid_level` changed to `egg_level`
-	* `raid_begin` changed to `hatch_time`
-	* `raid_end` changed to `hatch_time_left`
+    * `raid_begin` changed to `hatch_time`
+    * `raid_end` changed to `hatch_time_left`
 	
 * **Gyms**
-    * `slots_availalbe` - displays the number of open guard slots available in a gym
-	* `guard_count` - displays the number of guards assigned to a gym
+    * `slots_available` - displays the number of open guard slots available in a gym
+    * `guard_count` - displays the number of guards assigned to a gym
 
 ---
 
