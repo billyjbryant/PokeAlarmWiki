@@ -1,9 +1,96 @@
 ## Patch History
 
+* [Patch 3.5](#patch-35)
 * [Patch 3.4](#patch-34)
 * [Patch 3.3](#patch-33)
 * [Patch 3.2](#patch-32)
 * [Patch 3.1](#patch-31)
+
+---
+
+## Patch 3.5
+
+This patch contains several breaking changes including changes made to completely re-work the Filters subsystem, *Please see the [**Wiki**](https://github.com/PokeAlarm/PokeAlarm/wiki) and `filters.json.example` for information on the necessary changes*
+
+### Filters
+
+* **Breaking Change** - Reworked PA Filter system to improve performance and reduce overall resource requirements. 
+
+* Expanded Filter system to allow multiple combinations of filter options, this change allows filter files to be combined and reduces the total number of managers necessary. 
+
+* **All**
+    * All instances of `pkmn` replaced with `mon`
+	* `missing_info` changed to `is_missing_info`
+	* `is_missing_info` now correctly defaults to `False`
+	* `image_url` changed to `gym_image`
+	* `custom_dts` added to pass a Custom Dynamic Text Substitution to the Alert system, see [**Custom DTS**](https://github.com/PokeAlarm/PokeAlarmWiki/blob/dev/Filters-Overview.md#custom-dts) for more details. 
+	
+* **Gyms/Raids/Eggs**
+    * `gym_name_contains` - Added functionality to filter Gym/Raid/Egg events based on the cached name of the gym.  Requires `gym-info` to be enabled. 
+
+* **Gyms**
+    * `min_slots` - Allows filtering gyms based on the minimum number of guard slots available.
+	* `max_slots` - Allows filtering gyms based on the maximum number of guard slots available.
+	
+* **Raids**
+    * `min_lvl` & `max_lvl` changed to `min_raid_lvl` and `max_raid_lvl`
+	* `quick_move_id` changed to `quick_id`
+	* `charge_move_id` changed to `charge_id`
+	
+### Server Settings
+
+* Reworked PA Event handling system to improve performance and reduce resource utilization.
+
+### Alarms
+
+* **Discord/Slack/Facebook Pages**
+    * Updated Image Structure for `icon_url` and `avatar_url`
+	* Implemented changes to the default image urls to help bust Discord and Slack image caching
+
+* **Discord** `webhook_url` now accepts DTS elements
+
+* **Twilio** now supports using an array of numbers for the `to` field in Alert configurations.
+
+
+### Data
+
+* Added Gen3 Movesets to English Translation
+* Added Gen3 Movesets to Chinese Translation
+* Updated Kyogre and Groudon stats
+
+### Dynamic Text Substitutions
+
+* **All**
+	* **Custom_DTS**
+        Added support for Custom DTS Fields to be passed using the `custom_dts` Filter
+	* `pkmn` changed to `mon_name`
+	* `pkmn_id` changed to `mon_id`
+	* `pkmn_id_3` changed to `mon_id_3`
+    * `gym_image_url` changed to `gym_image`
+
+* **Pokemon**
+    * `tiny_rat` - Updated to use weight instead of size.
+	* `big_karp` - Updated to use weight instead of size.
+	* `enc_id` changed to `encounter_id`
+	* `form_id_3_or_empty` replaced with `form_id_3`
+	* `form_name` added to retrieve the name of a monster's form
+
+* **Pokestops**
+    * `id` changed to `stop_id`
+	
+* **Raids**
+    * `team_leader` - Reports the name of the team leader of the team in control of the gym.
+	* `raid_level` changed to `raid_lvl`
+	* `raid_end` changed to `raid_time_left`
+	
+* **Eggs**
+    * `raid_level` changed to `egg_level`
+	* `raid_begin` changed to `hatch_time`
+	* `raid_end` changed to `hatch_time_left`
+	
+* **Gyms**
+    * `slots_availalbe` - displays the number of open guard slots available in a gym
+	* `guard_count` - displays the number of guards assigned to a gym
 
 ---
 
