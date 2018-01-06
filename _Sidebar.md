@@ -2,16 +2,33 @@
 [Home](home)    
 [Installation](installation)  
 [FAQ](faq)
-   
+
 ### **Settings**
 [Configuring PokeAlarm](configuring-pokeAlarm)   
-[Server Settings](server-settings)   
-[Filters](filters)    
+[Server Settings](server-settings)  
 [Alarms](alarms)  
 [Geofences](geofences)  
-[Managers](managers)  
+[Managers](managers)
 
-### **Services**  
+### **Filters**
+
+[Overview](Filters-Overview)  
+[Monsters](Monster-Filters)  
+[Stops](Stop-Filters)  
+[Gyms](Gym-Filters)  
+[Eggs](Egg-Filters)  
+[Raids](Raid-Filters)
+
+### **DTS**
+[Overview](Dynamic-Text-Substitution)  
+[Monsters](Monster-DTS)  
+[Stops](Stop-DTS)  
+[Gyms](Gym-DTS)  
+[Eggs](Egg-DTS)  
+[Raids](Raid-DTS)
+
+
+### **Alarms**
 [Discord](Discord)  
 [Facebook Pages](Facebook-Pages)  
 [Pushbullet](Pushbullet)   
@@ -21,7 +38,6 @@
 [Twitter](Twitter)
 
 ### **Other**
-[Dynamic Text Substitution](Dynamic-Text-Substitution)  
 [Object Caching](Object-Caching)  
 [Google Maps API Keys](Google-Maps-API-Key)   
 [Remedy's v3.2 Guide](v3.2-Guide)  
@@ -29,5 +45,5 @@
 
 ### **Documentation**
 [Webhook Standards](Webhook-Standard)  
+[Patch Notes](patch-notes)  
 [Blog](https://pokealarm.github.io/)
-[Patch Notes](patch-notes)

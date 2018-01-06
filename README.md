@@ -1,4 +1,5 @@
-![PokeAlarm](https://raw.githubusercontent.com/wiki/PokeAlarm/PokeAlarm/images/logo.png) 
+![PokeAlarm](https://raw.githubusercontent.com/wiki/PokeAlarm/PokeAlarm/images/logo.png)
+[![Discord](https://discordapp.com/api/guilds/215181169761714177/widget.png?style=shield)](https://discord.gg/S2BKC7p)
 [![Donate](https://img.shields.io/badge/Donate-Patron-orange.svg)](https://www.patreon.com/bePatron?u=5193416)
 ![Python 2.7](https://img.shields.io/badge/python-2.7-blue.svg)
 ![license](https://img.shields.io/github/license/PokeAlarm/PokeAlarm.svg)
@@ -26,4 +27,4 @@ Before visiting your discord channel, check both the [Wiki](https://github.com/P
 Have an idea for a new feature? Think you found a bug? Head over to our [Github](https://github.com/PokeAlarm/PokeAlarm/issues/new) and open an 'Issue' ticket. Make sure to follow the template completly, or else your issue will be closed without comment.
 
 ## Want to contribute?
-Besides financial support, you can also do your part to help PA grow. Feel free to submit PR's to our [Github](https://github.com/PokeAlarm/PokeAlarm/issues/new). You can also suggest changes to the Wiki on our [Wiki Github](https://github.com/PokeAlarm/PokeAlarmWiki). If you find a mistake but don't have the skill to fix it, feel free to open an 'Issue' on the appropriate Github page. 
+Besides financial support, you can also do your part to help PA grow. Feel free to submit PR's to our [Github](https://github.com/PokeAlarm/PokeAlarm/issues/new). You can also suggest changes to the Wiki on our [Wiki Github](https://github.com/PokeAlarm/PokeAlarmWiki). If you find a mistake but don't have the skill to fix it, feel free to open an 'Issue' on the appropriate Github page.

@@ -10,7 +10,7 @@
 * [How to get a Permanent Facebook Page Access Token](#how-to-get-a-permanent-facebook-page-token)
 
 ## Prerequisites
-This guide assumes 
+This guide assumes
 
 1. You are familiar with [JSON formatting](https://www.w3schools.com/js/js_json_intro.asp)
 2. You have read and understood the [Alarms](alarms) Wiki
@@ -32,15 +32,15 @@ PokeAlarm offers the following for Facebook Pages:
 These `alarms.json` parameters - `active`, `type`, and `page_access_token` - are required to enable the Facebook Pages alarm service:
 
 | Parameters         | Description                            |
-| --------------     |----------------------------------------|
-| type               | must be `facebook_page`                |
+|--------------------|----------------------------------------|
+| type               | Must be `facebook_page`                |
 | active             | `True` for alarm to be active          |
 | page_access_token  | Your permanent FB page access token    |
 
 ### Example: Basic Alarm Configuration using Required Parameters
 ```json
 {
-	"active": "True",
+	"active":"True",
 	"type":"facebook_page",
 	"page_access_token":"YOUR_PAGE_ACCESS_TOKEN"
 }
@@ -50,138 +50,135 @@ These `alarms.json` parameters - `active`, `type`, and `page_access_token` - are
 ## Advanced Config
 
 ### Optional Parameters
-In addition to the 3 required parameters, several optional parameters are available to personalize your Facebook Pages notifications.  Below is an example of these optional parameters and how they are incorporated into a functional alarm layout for Facebook Pages.
+In addition to the 3 required parameters, several optional parameters are available to personalize your Facebook Pages notifications. Below is an example of these optional parameters and how they are incorporated into a functional alarm layout for Facebook Pages.
 
 These optional parameters are entered at the same level as `"type":"facebook_page"`.
 
 | Parameters         | Description                                                | Default                      |
 |--------------------|------------------------------------------------------------|------------------------------|
-| `startup_message`  | confirmation post when PokeAlarm initialized               | `True`                       |
+| `startup_message`  | Confirmation post when PokeAlarm initialized               | `True`                       |
 
 These optional parameters below are applicable to the `pokemon`, `pokestop`, `gym`, `egg`, and `raid` sections of the JSON file.
 Check Image column to see where everything appears in the final publication.
 
 ![](images/Facebook.png)  
 
-| Parameters       | Description                                       | Image|
-| -----------------|---------------------------------------------------|----|
-| `message`        | Message to post as status message                 | 1 |
-| `link`           | Link to be added to notification text   	       | Link |
+| Parameters       | Description                                       | Image |
+|------------------|---------------------------------------------------|-------|
+| `message`        | Message to post as status message                 | 1     |
+| `link`           | Link to be added to notification text             | Link  |
 | `image`          | Url of the image to show as a preview (empty for linked page preview) | 2 |
-| `name`           | Link title (empty for linked page title)   		   | 3 |
-| `description`    | Link description (empty for blank description)   		   | 4 |
-| `caption`        | Link domain (empty for linked page domain)   		   | 5 |
+| `name`           | Link title (empty for linked page title)          | 3     |
+| `description`    | Link description (empty for blank description)    | 4     |
+| `caption`        | Link domain (empty for linked page domain)        | 5     |
 
-When it says `"empty for X"` it means that you can disable the default PokeAlarm value setting that parameter to `""` in your `alarms.js` file. In that case Facebook will use the link information to fill that field in the publication.
+When it says `"empty for X"` it means that you can disable the default PokeAlarm value setting that parameter to `""` in your `alarms.json` file. In that case Facebook will use the link information to fill that field in the publication.
 
 For example if you have `link` as a google maps link and you disable the `image` parameter setting it to `""`, it will be a minimap image of that coordinates.
-
 
 `pokemon` default values:
 
 | Parameters       | Default                                       |
-| -----------------|-----------------------------------------------|
-| `message`        |  `A wild <pkmn> has appeared!` |
-| `link`           | `<gmaps>` |
-| `image`          | `https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png` |
-| `name`           | `<pkmn>`  |
-| `description`    | `Available until <24h_time> (<time_left>)`  |
-| `caption`        |  None  |
-
+|------------------|-----------------------------------------------|
+| `message`        |  `A wild <pkmn> has appeared!`                |
+| `image`          |                                               |
+| `link`           | `<gmaps>`                                     |
+| `name`           | `<pkmn>`                                      |
+| `description`    | `Available until <24h_time> (<time_left>)`    |
+| `caption`        |  None                                         |
 
 `pokestop` default values:
 
 | Parameters       |  Default                                       |
-| -----------------|-----------------------------------------------|
-| `message`        |  `Someone has placed a lure on a Pokestop!`                                      |
-| `link`           | `<gmaps>` |
-| `image`          | `https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/pokestop.png` |
-| `name`           | `Lured Pokestop`  |
-| `description`    | `Lure will expire at <24h_time> (<time_left>)`  |
-| `caption`        | None  |
-
+|------------------|------------------------------------------------|
+| `message`        |  `Someone has placed a lure on a Pokestop!`    |
+| `image`          |                                                |
+| `link`           | `<gmaps>`                                      |
+| `name`           | `Lured Pokestop`                               |
+| `description`    | `Lure will expire at <24h_time> (<time_left>)` |
+| `caption`        | None                                           |
 
 `gym` default values:
 
-| Parameters       |  Default                                       |
-| -----------------|-----------------------------------------------|
-| `message`        | `A Team <old_team> gym has fallen!`                                      |
-| `link`           |  `<gmaps>` |
-| `image`          |  `https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/gym_<team_id>.png` |
-| `name`           |  `<old_team> gym fallen`  |
-| `description`    | `It is now controlled by <new_team>`  |
-| `caption`        |  None  |
+| Parameters       |  Default                                      |
+|------------------|-----------------------------------------------|
+| `message`        | `A Team <old_team> gym has fallen!`           |
+| `image`          |                                               |
+| `link`           |  `<gmaps>`                                    |
+| `name`           |  `<old_team> gym fallen`                      |
+| `description`    | `It is now controlled by <new_team>`          |
+| `caption`        |  None                                         |
 
 `egg` default values:
 
-| Parameters       |  Default                                       |
-| -----------------|-----------------------------------------------|
-| `message`        | `A level <raid_level> raid is upcoming!` |
-| `image`          | `https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/egg_<raid_level>.png`|
-| `link`           | `<gmaps>`|
-| `name`           | `Egg`|
-| `description`    | `The egg will hatch <begin_24h_time> (<begin_time_left>).`|
-| `caption`        | None |    
-    
-`raid` default values:    
-    
-| Parameters       |  Default                                       |
-| -----------------|-----------------------------------------------|
-| `message`        | `A Raid is available against <pkmn>!`|
-| `image`          | `https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png`|
-| `link`           | `<gmaps>`|
-| `name`           | `Raid`|
-| `description`    | `The raid is available until <24h_time> (<time_left>).`|
-| `caption`        | None |
+| Parameters       |  Default                                      |
+|------------------|-----------------------------------------------|
+| `message`        | `A level <raid_level> raid is upcoming!`      |
+| `image`          |                                               |
+| `link`           | `<gmaps>`                                     |
+| `name`           | `Egg`                                         |
+| `description`    | `The egg will hatch <begin_24h_time> (<begin_time_left>).` |
+| `caption`        | None                                          |
 
+`raid` default values:
 
+| Parameters       |  Default                                      |
+|------------------|-----------------------------------------------|
+| `message`        | `A Raid is available against <pkmn>!`         |
+| `image`          |                                               |
+| `link`           | `<gmaps>`                                     |
+| `name`           | `Raid`                                        |
+| `description`    | `The raid is available until <24h_time> (<time_left>).` |
+| `caption`        | None                                          |
 
 ## Example: Alarm Configuration Using Optional Parameters
 ```json
 {
-    "active": "True",
+    "active":"True",
     "type":"facebook_page",
     "page_access_token":"YOUR_PAGE_ACCESS_TOKEN",
     "startup_message":"True",
     "pokemon":{
-        "message": "<pkmn> available. <move_1>/<move_2> (<iv>% - <atk>/<def>/<sta>)",
-        "link": "<gmaps>",
-        "image" : "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
-        "description": "Address: <address>",
-        "name": "<pkmn>"		
+        "message":"<pkmn> available. <move_1>/<move_2> (<iv>% - <atk>/<def>/<sta>)",
+        "image*":"<YOUR CUSTOM URL HERE>/<pkmn_id_3>_<form_or_empty>.png",
+        "link":"<gmaps>",
+        "description":"Address: <address>",
+        "name":"<pkmn>"
     },
     "pokestop":{
-        "message": "Someone has placed a lure on a Pokestop! Lure will expire at <24h_time> (<time_left>).",
-        "description": "Address: <address>",
-        "link": "<gmaps>",
-        "name": ""
+        "message":"Someone has placed a lure on a Pokestop! Lure will expire at <24h_time> (<time_left>).",
+        "image*":"<YOUR CUSTOM URL HERE>/pokestop.png",
+        "description":"Address: <address>",
+        "link":"<gmaps>",
+        "name":""
     },
     "gym":{
         "message":"A Team <old_team> gym has fallen! It is now controlled by <new_team>.",
-        "link": "<gmaps>",
-        "name": "<new_team>",
-        "description": "Address: <address>",
-        "image": ""
+        "image*":"<YOUR CUSTOM URL HERE>/gym_<new_team_id>.png",
+        "link":"<gmaps>",
+        "name":"<new_team>",
+        "description":"Address: <address>"
     },
-    "egg": {
-        "message": "A level <raid_level> raid is upcoming!",
-        "image": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/egg_<raid_level>.png",
-        "link": "<gmaps>",
-        "name": "Egg",
-        "description": "The egg will hatch <begin_24h_time> (<begin_time_left>)."
+    "egg":{
+        "message":"A level <raid_level> raid is upcoming!",
+        "image*":"<YOUR CUSTOM URL HERE>/egg_<raid_level>.png",
+        "link":"<gmaps>",
+        "name":"Egg",
+        "description":"The egg will hatch <begin_24h_time> (<begin_time_left>)."
     },
-    "raid": {
-        "message": "A Raid is available against <pkmn>!",
-        "image": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
-        "link": "<gmaps>",
-        "name": "Raid",
-        "description": "The raid is available until <24h_time> (<time_left>)."
+    "raid":{
+        "message":"A Raid is available against <pkmn>!",
+        "image*":"<YOUR CUSTOM URL HERE>/<pkmn_id_3>_<form_or_empty>.png",
+        "link":"<gmaps>",
+        "name":"Raid",
+        "description":"The raid is available until <24h_time> (<time_left>)."
     }
 }
 ```
-**Note:** The above code is to be inserted into the alarms section of alarms.json. It does not represent the entire alarms.json file.
+**Note1:** *THESE LINES ARE USED TO OVERRIDE DEFAULT VALUES. IF YOU DO NOT WISH TO USE CUSTOM IMAGES, DO NOT ADD THESE LINES TO YOUR ALARMS.JSON.
 
- 
+**Note2:** The above code is to be inserted into the alarms section of alarms.json. It does not represent the entire alarms.json file.
+
 ## How to get a Permanent Facebook Page Token
 
 Use the [Graph API Explorer](https://developers.facebook.com/tools/explorer) for all of these steps except where otherwise stated.
@@ -237,4 +234,3 @@ Make a GET request to
 `https://graph.facebook.com/v2.2/{account_id}/accounts?access_token={long_lived_access_token}`
 
 Be sure to remove the curly braces "{}" when replacing values. The JSON response should have a **data** field under which is an array of items the user has access to. Find the item for the page you want the permanent access token from. The **access_token** field should have your permanent access token. Copy it and test it in the [Access Token Debugger](https://developers.facebook.com/tools/debug/accesstoken). Under "Expires" it should say "Never".
-

@@ -5,6 +5,7 @@
   * [Required Parameters](#required-parameters)
   * [Example: Basic Alarm Configuration using Required Parameters](#example-basic-alarm-configuration-using-required-parameters)
 * [Advanced Config](#advanced-config)
+  * [Multiple Destinations](#multiple-destinations)
   * [Optional Parameters](#optional-parameters)
   * [Example: Alarm Configuration Using Optional Parameters](#example-alarm-configuration-using-optional-parameters)
 * [How to get the Account SID, Auth Token, and Twilio Number](#how-to-get-the-account-sid-auth-token-and-twilio-number)
@@ -53,7 +54,22 @@ These `alarms.json` parameters are required to enable the alarm service:
 
 ## Advanced Config
 In addition to the above required parameters, several optional parameters are available to personalize your notifications.
+### Multiple Destinations
 
+The `to_number` field can accept either a single destination phone number or an array of phone numbers to send SMS messages to. This allows for sending SMS alerts to multiple destinations.
+
+#### Example
+Below is an example of using an array for the destination number(s) in the alarm configuration.
+```json
+{
+        "active": "True",
+        "type":"twilio",
+        "account_sid":"YOUR_API_KEY",
+        "auth_token":"YOUR_AUTH_TOKEN",
+        "from_number":"YOUR_FROM_NUM",
+        "to_number": [ "YOUR_1ST_TO_NUM", "YOUR_2ND_TO_NUM", "YOUR_3RD_TO_NUM" ]
+}
+```
 ### Optional Parameters
 
 These optional parameters below are applicable to the `pokemon`, `pokestop`, `gym`, `egg`, and `raid` alarm code of the JSON file.
