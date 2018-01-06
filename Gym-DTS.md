@@ -1,14 +1,14 @@
 ## Overview
 
-* [Prerequisities](#prerequisites)
-* [Available DTS](#parameters)
+* [Prerequisites](#prerequisites)
+* [Available DTS](#available-dts)
 
 ## Prerequisites
 
 This page assumes:
 
 1. You have a working scanner.
-2. You read and understood the [DTS](Dynamic-Text-Subsitution) page.
+2. You read and understood the [DTS](Dynamic-Text-Substitution) page.
 3. You are using the latest version of PokeAlarm.
 
 
@@ -16,7 +16,7 @@ This page assumes:
 
 | DTS          | Description                                           |
 |------------- |------------------------------------------------------ |
-| gym_id       | The gym id. Unique per gym.                         |
+| gym_id       | The gym id. Unique per gym.                           |
 | time_left    | Time remaining until the lure expires.                |
 | lat          | Latitude of the stop.                                 |
 | lng          | Longitude of the stop.                                |
@@ -26,7 +26,7 @@ This page assumes:
 | direction    | Cardinal direction of the monster, from the set location.|
 | gmaps        | Google Maps link to the location of the monster.      |
 | applemaps    | Apple Maps link to the location of the monster.       |
-| geofence     | Geofence around the event. See 'Geofences' section from [filters](fitlers#defaults) page.|
+| geofence     | Geofence around the event. See 'Geofences' section from [filters](Filters-Overview#geofence) page.|
 | old_team     | The team in control of the gym previously.            |
 | old_team_id  | The id of the team in control of the gym previously.  |
 | old_team_leader| The leader of the team in control of the gym previously.|
@@ -37,5 +37,5 @@ This page assumes:
 | gym_description | * The description of the Gym.                      |
 | gym_image     | * The url to the image of the Gym.                   |
 
-\* Gym Info require caching. See the 
+\* Gym Info require caching. See the
 [Object Caching](Object-Caching) page for more information.

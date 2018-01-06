@@ -1,14 +1,14 @@
 ## Overview
 
-* [Prerequisities](#prerequisites)
-* [Available DTS](#parameters)
+* [Prerequisites](#prerequisites)
+* [Available DTS](#available-dts)
 
 ## Prerequisites
 
 This page assumes:
 
 1. You have a working scanner.
-2. You read and understood the [DTS](Dynamic-Text-Subsitution) page.
+2. You read and understood the [DTS](Dynamic-Text-Substitution) page.
 3. You are using the latest version of PokeAlarm.
 
 
@@ -28,4 +28,4 @@ This page assumes:
 | direction    | Cardinal direction of the monster, from the set location.|
 | gmaps        | Google Maps link to the location of the monster.      |
 | applemaps    | Apple Maps link to the location of the monster.       |
-| geofence     | Geofence around the event. See 'Geofences' section from [filters](fitlers#defaults) page.|
+| geofence     | Geofence around the event. See 'Geofences' section from [filters](Filters-Overview#geofence) page.|

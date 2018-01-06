@@ -18,11 +18,11 @@ This guide assumes the following:
 Settings for the PokeAlarm server can be done the following two ways:
 
 1. **Command Line** - When starting PokeAlarm, you can specify certain settings with flags following the start up command. For example, you can change the IP that PokeAlarm binds itself to by using either `python start_pokealarm.py -H 192.168.0.1` or `python start_pokealarm.py --host 192.168.0.1`.  
-  **Note**: when used together, command line flags will override arguements specified in the configuration file.
+  **Note**: when used together, command line flags will override arguments specified in the configuration file.
 
 2. **Configuration File** - You can also use a configuration file in `ini` format to set server settings for PokeAlarm. These settings use the same flags at the command line. For example, you either `host: 192.168.0.1` or `H: 192.168.0.1` line to the configuration file to change the IP that PokeAlarm binds itself to.
 
-For files, all relative paths will being from the PokeAlarm root folder, but absolute file paths can still be used. 
+For files, all relative paths will being from the PokeAlarm root folder, but absolute file paths can still be used.
 
 ## Command Line
 
@@ -81,7 +81,7 @@ optional arguments:
 
 ## Configuration File
 
-A copy of the most recent configuration file should be located at `config/config.ini.example`. You can copy this file as a starting point. 
+A copy of the most recent configuration file should be located at `config/config.ini.example`. You can copy this file as a starting point.
 
 By default, PokeAlarm will load the file at `config/config.ini` if it exists. You can manually specify a configuration file with either the `-cf` or `--config` file via the command line.
 
@@ -89,7 +89,7 @@ By default, PokeAlarm will load the file at `config/config.ini` if it exists. Yo
 # Copy this file to config.ini and modify to suit your needs
 # Uncomment a line (remove the #) when you want to change its default value.
 # Multiple arguments can be listed as [arg1, arg2, ... ]
-# Number of arguments must match manager_count or be a single arguement (single arguements will apply to all Managers)
+# Number of arguments must match manager_count or be a single argument (single arguments will apply to all Managers)
 # To exclude an argument for a specific manager, use 'None'
 
 # Server Settings

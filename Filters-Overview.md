@@ -1,13 +1,13 @@
 ## Overview
 
-* [Prerequisities](#prerequisites)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Filter Parameters](#filter-parameters)
 * [Defaults](#defaults)
 * [Advanced](#advanced)
   * [Missing Info](#missing-info)
-  * [Geofences](#geofences)
-  * [Cusom DTS](#custom-dts)
+  * [Geofence](#geofence)
+  * [Custom DTS](#custom-dts)
 
 ## Prerequisites
 This guide assumes:
@@ -26,9 +26,9 @@ filters defined in your `filters.json` configuration file.
 A `filters.json` file is composed of a single JSON object with five
 different subsections. Each section defines different settings for each
 different type of event. Currently, PA supports
-[Monsters](filters_monsters),
-[Stops](filters_stops), [Gyms](filters_json), [Eggs](filters_eggs),
-and [Raids](filters_raids) as Event types.
+[Monsters](Monster-Filters),
+[Stops](Stop-Filters), [Gyms](Gym-Filters), [Eggs](Egg-Filters),
+and [Raids](Raid-Filters) as Event types.
 
 The basic structure of `filters.json` is as follows:
 
@@ -67,7 +67,7 @@ The basic structure of `filters.json` is as follows:
 
 ## Filter Parameters
 
-Each section contains a `"filters"` subsection as a jsob object with
+Each section contains a `"filters"` subsection as a json object with
 filters represented as key-value pairs. The key represents the
 **filter name** paired to the corresponding **filter parameters**. Each
 type of Event contains it's own parameters, which are listed on the
@@ -188,7 +188,7 @@ Geofences are checked in order. The first geofence with the event inside
  will be used to define the `<geofence>` DTS.
 
 If no geofences are set, the `<geofence>` DTS will always return
-`unnown`.
+`unknown`.
 
 If a geofence with the set name does not exist, it will be skipped and
 an error will print out to the console.
@@ -222,6 +222,6 @@ If the event passes the first filter, the text `<family>` will return
 
 Custom DTS can be used for a variety of different things, including
 customizing the Discord Webhook or Slack Channel. However they can never
-overide original DTS's.
+override original DTS's.
 
 Currently, Custom DTS cannot make use of regular DTS.

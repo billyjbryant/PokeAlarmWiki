@@ -1,14 +1,14 @@
 ## Overview
 
-* [Prerequisities](#prerequisites)
-* [Available DTS](#parameters)
+* [Prerequisites](#prerequisites)
+* [Available DTS](#available-dts)
 
 ## Prerequisites
 
 This page assumes:
 
 1. You have a working scanner.
-2. You read and understood the [DTS](Dynamic-Text-Subsitution) page.
+2. You read and understood the [DTS](Dynamic-Text-Substitution) page.
 3. You are using the latest version of PokeAlarm.
 
 
@@ -31,7 +31,7 @@ This page assumes:
 | direction    | Cardinal direction of the raid, from the set location.|
 | gmaps        | Google Maps link to the location of the raid.         |
 | applemaps    | Apple Maps link to the location of the raid.          |
-| geofence     | Geofence around the event. See 'Geofences' section from [filters](fitlers#defaults) page.|
+| geofence     | Geofence around the event. See 'Geofences' section from [filters](Filters-Overview#geofence) page.|
 | gym_name     | * The name of the Gym.                                |
 | gym_description | * The description of the Gym.                      |
 | gym_image     | * The url to the image of the Gym.                   |
@@ -39,5 +39,5 @@ This page assumes:
 | team_name    | The team currently in control of the gym.             |
 | team_leader  | The leader of the team currently in control of the gym.|
 
-\* Gym Info requires caching. See the 
+\* Gym Info requires caching. See the
 [Object Caching](Object-Caching) page for more information.

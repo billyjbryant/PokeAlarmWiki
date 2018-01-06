@@ -1,14 +1,14 @@
 ## Overview
 
-* [Prerequisities](#prerequisites)
-* [Available DTS](#parameters)
+* [Prerequisites](#prerequisites)
+* [Available DTS](#available-dts)
 
 ## Prerequisites
 
 This page assumes:
 
 1. You have a working scanner.
-2. You read and understood the [DTS](Dynamic-Text-Subsitution) page.
+2. You read and understood the [DTS](Dynamic-Text-Substitution) page.
 3. You are using the latest version of PokeAlarm.
 
 
@@ -31,10 +31,10 @@ This page assumes:
 | lat_5        | Latitude of the monster, truncated to 5 decimal places.|
 | lng_5        | Longitude of the monster, truncated to 5 decimal places.|
 | distance     | Distance of the monster from the set location.        |
-| direction    | Cardinal directoin of the monster, from the set location.|
+| direction    | Cardinal direction of the monster, from the set location.|
 | gmaps        | Google Maps link to the location of the monster.      |
 | applemaps    | Apple Maps link to the location of the monster.       |
-| geofence     | Geofence around the event. See 'Geofences' section from [filters](fitlers#defaults) page.|
+| geofence     | Geofence around the event. See 'Geofences' section from [filters](Filters-Overview#geofence) page.|
 | mon_lvl      | Level of the monster.                                 |
 | cp           | Combat Points of the monster.                         |
 | iv           | Individual Values percentage of the monster.          |              
@@ -62,4 +62,3 @@ This page assumes:
 | height       | Height of the monster.                                |
 | weight       | Weight of the monster.                                |
 | size         | Estimated size of the monster.                        |
-           

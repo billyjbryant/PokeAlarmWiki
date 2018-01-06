@@ -1,5 +1,5 @@
 ## Overview
-* [Prerequisities](#prerequisities)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Enabling the Various Google Maps APIs and Obtaining a Key](#enabling-the-various-google-maps-apis-and-obtaining-a-key)
 * [Testing Your API Key](#testing-your-api-key)
@@ -9,8 +9,8 @@
 * [Starting PokeAlarm with a Google Maps API Key](#starting-pokealarm-with-a-google-maps-api-key)
 * [Google API Daily Limit](#google-api-daily-limit)
 
-## Prerequisities
-  
+## Prerequisites
+
 This guide assumes:
 
 1. You have a functional PokeAlarm installation
@@ -24,11 +24,11 @@ Using a Google Maps API key in PokeAlarm is **optional**.  It enable additional 
 In order to use a feature, you must have the corresponding API enabled in Google API Manager, and have a generated Google Maps API key.  Below are the available features, and Google Map API to enable for that feature:
 
 
-| PokeAlarm Feature 					  						| Google Maps API to Enable					|
-|:--------------------------------------------------------------|:------------------------------------------|
-| Set a location by name or address								| Google Maps Geocoding						|
-| Calculate walking/biking/driving distance from a set location	| Google Maps Distance Matrix				|
-| Show a Mini Map of pokemon, gyms, or lures in Slack			| Google Static Maps						|
+| PokeAlarm Feature                                             | Google Maps API to Enable    |
+|:--------------------------------------------------------------|:-----------------------------|
+| Set a location by name or address                             | Google Maps Geocoding        |
+| Calculate walking/biking/driving distance from a set location	| Google Maps Distance Matrix  |
+| Show a Mini Map of pokemon, gyms, lures, eggs or raids        | Google Static Maps           |
 
 You will enable the APIs per the requirements of you own PokeAlarm installation.  In other words, if you only want static maps, enable just the Google Static Maps API.  If you want static maps and to set your location, enable the Google Static Maps and Google Maps Geocoding APIs.
 
