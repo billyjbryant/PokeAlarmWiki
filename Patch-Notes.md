@@ -21,8 +21,8 @@ This patch contains several breaking changes including changes made to completel
 * **All**
     * All instances of `pkmn` replaced with `mon`
     * `missing_info` - Multiple changes have been made, refer to [**Missing Info**](Filters-Overview.md#missing-info) for more details on new functionality.
-	* `image_url` changed to `gym_image`
-	* `custom_dts` added to pass a Custom Dynamic Text Substitution to the Alert system, see [**Custom DTS**](Filters-Overview.md#custom-dts) for more details. 
+    * `image_url` changed to `gym_image`
+    * `custom_dts` added to pass a Custom Dynamic Text Substitution to the Alert system, see [**Custom DTS**](Filters-Overview.md#custom-dts) for more details. 
 
 * **Gyms/Raids/Eggs**
     * `gym_name_contains` - Added functionality to filter Gym/Raid/Egg events based on the cached name of the gym using a list of RegExs.  See (**Filters)[Gym-Filters.md#parameters] for more details.
@@ -33,8 +33,8 @@ This patch contains several breaking changes including changes made to completel
 	
 * **Raids**
     * `min_lvl` & `max_lvl` changed to `min_raid_lvl` and `max_raid_lvl`
-	* `quick_move_id` changed to `quick_id`
-	* `charge_move_id` changed to `charge_id`
+    * `quick_move_id` changed to `quick_id`
+    * `charge_move_id` changed to `charge_id`
 	
 ### Server Settings
 
@@ -44,7 +44,7 @@ This patch contains several breaking changes including changes made to completel
 
 * **Discord/Slack/Facebook Pages**
     * Updated Image Structure for `icon_url` and `avatar_url`
-	* Implemented changes to the default image urls to help bust Discord and Slack image caching
+    * Implemented changes to the default image urls to help bust Discord and Slack image caching
 
 * **Discord** `webhook_url` now accepts DTS elements
 
