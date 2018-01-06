@@ -10,7 +10,7 @@
 
 ## Patch 3.5
 
-This patch contains several breaking changes including changes made to completely re-work the Filters subsystem, *Please see the [**Wiki**](https://github.com/PokeAlarm/PokeAlarm/wiki) and `filters.json.example` for information on the necessary changes*
+This patch contains several breaking changes including changes made to completely re-work the Filters subsystem, *Please see the [**Wiki**](https://github.com/PokeAlarm/PokeAlarm/wiki) and `filters.json.example` for information on how these changes impact your setup.*
 
 ### Filters
 
