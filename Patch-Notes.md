@@ -25,7 +25,7 @@ This patch contains several breaking changes including changes made to completel
     * `custom_dts` added to pass a Custom Dynamic Text Substitution to the Alert system, see [**Custom DTS**](Filters-Overview.md#custom-dts) for more details. 
 
 * **Gyms/Raids/Eggs**
-    * `gym_name_contains` - Added functionality to filter Gym/Raid/Egg events based on the cached name of the gym using a list of RegExs.  See (**Filters**)[Gym-Filters.md#parameters] for more details.
+    * `gym_name_contains` - Added functionality to filter Gym/Raid/Egg events based on the cached name of the gym using a list of RegExs.  See [**Filters**](Gym-Filters.md#parameters) for more details.
 
 * **Gyms**
     * `min_slots` - Allows filtering gyms based on the minimum number of guard slots available.
