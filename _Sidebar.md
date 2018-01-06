@@ -19,6 +19,15 @@
 [Eggs](Egg-Filters)  
 [Raids](Raid-Filters)
 
+### **DTS**
+[Overview](Dynamic-Text-Substitution)  
+[Monsters](Monster-DTS)  
+[Stops](Stop-Filters)  
+[Gyms](Gym-Filters)  
+[Eggs](Egg-Filters)  
+[Raids](Raid-Filters)
+
+
 ### **Alarms**
 [Discord](Discord)  
 [Facebook Pages](Facebook-Pages)  
@@ -29,7 +38,6 @@
 [Twitter](Twitter)
 
 ### **Other**
-[Dynamic Text Substitution](Dynamic-Text-Substitution)  
 [Object Caching](Object-Caching)  
 [Google Maps API Keys](Google-Maps-API-Key)   
 [Remedy's v3.2 Guide](v3.2-Guide)  
