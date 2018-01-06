@@ -22,10 +22,10 @@
 ### **DTS**
 [Overview](Dynamic-Text-Substitution)  
 [Monsters](Monster-DTS)  
-[Stops](Stop-Filters)  
-[Gyms](Gym-Filters)  
-[Eggs](Egg-Filters)  
-[Raids](Raid-Filters)
+[Stops](Stop-DTS)  
+[Gyms](Gym-DTS)  
+[Eggs](Egg-DTS)  
+[Raids](Raid-DTS)
 
 
 ### **Alarms**
