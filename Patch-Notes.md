@@ -15,28 +15,28 @@ This patch contains several breaking changes including changes made to completel
 
 ### Filters
 
-* **Breaking Change** - Reworked PA Filter system to improve performance and reduce overall resource requirements. 
+* **Breaking Change** - Reworked PA Filter system to improve performance and reduce overall resource requirements.
 
 * Expanded Filter system to allow multiple combinations of filter options, this change allows filter files to be combined and reduces the total number of managers necessary. 
 
 * **All**
     * All instances of `pkmn` replaced with `mon`
-    * `missing_info` - Multiple changes have been made, refer to [**Missing Info**](Filters-Overview.md#missing-info) for more details on new functionality.
+    * `missing_info` - Multiple changes have been made, refer to [**Missing Info**](Filters-Overview#missing-info) for more details on new functionality.
     * `image_url` changed to `gym_image`
-    * `custom_dts` added to pass a Custom Dynamic Text Substitution to the Alert system, see [**Custom DTS**](Filters-Overview.md#custom-dts) for more details. 
+    * `custom_dts` added to pass a Custom Dynamic Text Substitution to the Alert system, see [**Custom DTS**](Filters-Overview#custom-dts) for more details.
 
 * **Gyms/Raids/Eggs**
-    * `gym_name_contains` - Added functionality to filter Gym/Raid/Egg events based on the cached name of the gym using a list of RegExs.  See [**Filters**](Gym-Filters.md#parameters) for more details.
+    * `gym_name_contains` - Added functionality to filter Gym/Raid/Egg events based on the cached name of the gym using a list of RegExs.  See [**Filters**](Gym-Filters#parameters) for more details.
 
 * **Gyms**
     * `min_slots` - Allows filtering gyms based on the minimum number of guard slots available.
     * `max_slots` - Allows filtering gyms based on the maximum number of guard slots available.
-	
+
 * **Raids**
     * `min_lvl` & `max_lvl` changed to `min_raid_lvl` and `max_raid_lvl`
     * `quick_move_id` changed to `quick_id`
     * `charge_move_id` changed to `charge_id`
-	
+
 ### Server Settings
 
 * Reworked PA Event handling system to improve performance and reduce resource utilization.
@@ -56,7 +56,7 @@ This patch contains several breaking changes including changes made to completel
 
 * Added Gen3 Movesets
 * Updated Kyogre and Groudon stats
-* Added Portugese language translations
+* Added Portuguese language translations
 
 ### Dynamic Text Substitutions
 
@@ -77,17 +77,17 @@ This patch contains several breaking changes including changes made to completel
 
 * **Pokestops**
     * `id` changed to `stop_id`
-	
+
 * **Raids**
     * `team_leader` - Reports the name of the team leader of the team in control of the gym.
     * `raid_level` changed to `raid_lvl`
     * `raid_end` changed to `raid_time_left`
-	
+
 * **Eggs**
-    * `raid_level` changed to `egg_level`
-    * `raid_begin` changed to `hatch_time`
-    * `raid_end` changed to `hatch_time_left`
-	
+    * `raid_level` changed to `egg_lvl`
+    * `raid_begin` changed to `hatch_time_left`
+    * `raid_end` changed to `raid_time_left`
+
 * **Gyms**
     * `slots_available` - displays the number of open guard slots available in a gym
     * `guard_count` - displays the number of guards assigned to a gym

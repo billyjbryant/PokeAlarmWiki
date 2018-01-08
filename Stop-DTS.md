@@ -14,18 +14,18 @@ This page assumes:
 
 ## Available DTS
 
-| DTS          | Description                                           |
-|------------- |------------------------------------------------------ |
-| stop_id      | The stop id. Unique per stop.                         |
-| time_left    | Time remaining until the lure expires.                |
-| 12h_time     | Time that the lure will disappear, in a 12h format.   |
-| 24h_time     | Time that the lure will disappear, in a 24h format.   |
-| lat          | Latitude of the stop.                                 |
-| lng          | Longitude of the stop.                                |
-| lat_5        | Latitude of the stop, truncated to 5 decimal places.  |
-| lng_5        | Longitude of the stop, truncated to 5 decimal places. |
-| distance     | Distance of the monster from the set location.        |
-| direction    | Cardinal direction of the monster, from the set location.|
-| gmaps        | Google Maps link to the location of the monster.      |
-| applemaps    | Apple Maps link to the location of the monster.       |
+| DTS          | Description                                            |
+|------------- |------------------------------------------------------- |
+| stop_id      | The stop id. Unique per stop.                          |
+| time_left    | Time remaining until the lure expires.                 |
+| 12h_time     | Time that the lure will disappear, in a 12h format.    |
+| 24h_time     | Time that the lure will disappear, in a 24h format.    |
+| lat          | Latitude of the stop.                                  |
+| lng          | Longitude of the stop.                                 |
+| lat_5        | Latitude of the stop, truncated to 5 decimal places.   |
+| lng_5        | Longitude of the stop, truncated to 5 decimal places.  |
+| distance     | Distance of the stop from the set location.            |
+| direction    | Cardinal direction of the stop, from the set location. |
+| gmaps        | Google Maps link to the location of the stop.          |
+| applemaps    | Apple Maps link to the location of the stop.           |
 | geofence     | Geofence around the event. See 'Geofences' section from [filters](Filters-Overview#geofence) page.|

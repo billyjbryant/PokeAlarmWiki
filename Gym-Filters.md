@@ -41,15 +41,17 @@ The `"gyms"` section has three distinct settings.
 
 Stop Filters can use the following parameters to filter Stop Events:
 
-| Parameter   | Description                                  | Example |
-| ----------- |--------------------------------------------- |---------|
-| min_dist    | Min distance of event from set location in miles or meters (depending on settings). | `0.0` *|
-| max_dist    | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` *|
-| old_teams   | List of allowed previous teams, by id or name. | `[ "Instinct", "Mystic" ]` |
-| new_team    | List of allowed new teams, by id or name.    | `[ "Valor", "Mystic" ]` |
-| gym_name_contains | List of regex's required to be in the gym name.  | `[ "Sponsored" , "West\\sOak"]` |
-| geofences   | See [filters](Filters-Overview#geofence) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
-| custom_dts  | See [filters](Filters-Overview#custom-dts) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
-| is_missing_info | See [filters](Filters-Overview#missing-info) page on 'Missing Info' | `true` or `false` |
+| Parameter   | Description                                                              | Example            |
+| ----------- |------------------------------------------------------------------------- |------------------- |
+| min_dist    | Min distance of event from set location in miles or meters (depending on settings). | `0.0` * |
+| max_dist    | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` * |
+| old_teams   | List of allowed previous teams, by id or name.                           | `[ "Instinct", "Mystic" ]` |
+| new_team    | List of allowed new teams, by id or name.                                | `[ "Valor", "Mystic" ]` |
+| gym_name_contains | List of regex's required to be in the gym name.                    | `[ "Sponsored" , "West\\sOak"]` |
+| min_slots   | Minimum number of guard slots available.                                 | `2` |
+| max_slots   | Maximum number of guard slots available.                                 | `6` |
+| geofences   | See [filters](Filters-Overview#geofence) page on 'Geofences'.            | `[ "geofence1", "geofence2" ]` |
+| custom_dts  | See [filters](Filters-Overview#custom-dts) page on 'Custom DTS'.         | `{ "dts1" : "substitution" }` |
+| is_missing_info | See [filters](Filters-Overview#missing-info) page on 'Missing Info'. | `true` or `false` |
 
 \* Floats can use `"inf"` to represent infinity
