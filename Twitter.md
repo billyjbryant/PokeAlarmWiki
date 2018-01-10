@@ -1,5 +1,5 @@
 ## Overview
-* [Prerequisities](#prerequisities)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Basic Config](#basic-config)
   * [Required Parameters](#required-parameters)
@@ -10,8 +10,8 @@
 * [How to Get a Twitter API Key](#how-to-get-a-twitter-api-key)
 
 
-## Prerequisities
-This guide assumes: 
+## Prerequisites
+This guide assumes:
 
 1. You are familiar with [JSON formatting](https://www.w3schools.com/js/js_json_intro.asp)
 2. You have read and understood the [Alarms](alarms) Wiki
@@ -61,16 +61,16 @@ In addition to the required parameters, several `alarm.json` optional parameters
 
 These optional parameters are entered at the same level as `"type":"twitter"`.
 
-| Parameters         | Description                                                | Default                      |
-|:-------------------|:-----------------------------------------------------------|:-----------------------------|
-| `startup_message`  | Confirmation post when PokeAlarm initialized               | `True`                       |
+| Parameters         | Description                                        | Default                      |
+|:-------------------|:---------------------------------------------------|:-----------------------------|
+| `startup_message`  | Confirmation post when PokeAlarm initialized       | `True`                       |
 
 These optional parameters below are applicable to the `pokemon`, `pokestop`, `gym`, `egg`, and `raid` sections of the JSON file.
 
 
-| Parameters      | Description                                       | Default                                       |
-|:----------------|:--------------------------------------------------|:----------------------------------------------|
-| `status`        | Message to post as status                         | `A wild <pkmn> has appeared! Available until <24h_time> (<time_left>). <gmaps>`                      |
+| Parameters      | Description                          | Default                                       |
+|:----------------|:-------------------------------------|:----------------------------------------------|
+| `status`        | Message to post as status            | `A wild <mon_name> has appeared! Available until <24h_time> (<time_left>). <gmaps>` |
 
 ### Example: Alarm Configuration Using Optional Parameters
 ```json
@@ -82,19 +82,19 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
     "consumer_key": "YOUR_CONSUMER_KEY",
     "consumer_secret": "YOUR_CONSUMER_SECRET",
     "pokemon":{
-        "status": "A wild <pkmn> has appeared! Available until <24h_time> (<time_left>). <gmaps>"
+        "status": "A wild <mon_name> has appeared! Available until <24h_time> (<time_left>). <gmaps>"
     },
     "pokestop":{
-        "status": "Someone has placed a lure on a Pokestop! Lure will expire at <24h_time> (<time_left>).  <gmaps>"
+        "status": "Someone has placed a lure on a Pokestop! Lure will expire at <24h_time> (<time_left>). <gmaps>"
     },
     "gym":{
         "status":"A Team <old_team> gym has fallen! It is now controlled by <new_team>. <gmaps>"
     },
     "egg": {
-        "status": "lvl <raid_level> raid! Hatches at <begin_24h_time> (<begin_time_left>). <gmaps>"
+        "status": "Level <egg_lvl> raid incoming! Hatches at <24h_hatch_time> (<hatch_time_left>). <gmaps>"
     },
     "raid": {
-        "status": "Raid on <pkmn>! Available until <24h_time> (<time_left>). <gmaps>"
+        "status": "Raid <raid_lvl> against <mon_name>! Available until <24h_raid_end> (<raid_time_left>). <gmaps>"
     }
 }
 ```

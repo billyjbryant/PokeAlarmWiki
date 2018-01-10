@@ -89,7 +89,7 @@ Each alarm requires some sort of API key or URL so that PokeAlarm can gain permi
 
 Each alarm setting runs independent of the other alarms, so changes to one alarm do not affect the others (even if they are of the same type).
 
-If is perfectly valid to have any combination of services, including repeats. 
+If is perfectly valid to have any combination of services, including repeats.
 
 ## Customizing Alerts
 
@@ -104,8 +104,8 @@ In order to customize an Alert, you must specify what type of alert you want to 
   "api_key":"YOUR_API_KEY_HERE",
 	"pokemon":{
 		"channel":"Pokemon",
-		"username":"<pkmn>",
-		"title":"A GIANT <pkmn> jumped out of the grass!",
+		"username":"<mon_name>",
+		"title":"A GIANT <mon_name> jumped out of the grass!",
 		"body": "Available until <24h_time> (<time_left>)."
 	},
 	"pokestop":{
@@ -115,13 +115,13 @@ In order to customize an Alert, you must specify what type of alert you want to 
 	}
 }
 ```
-For more information about Dynamic Text Substitutions (the `<text>`), please see the Dynamic Text Substitution wiki. 
+For more information about Dynamic Text Substitutions (the `<text>`), please see the Dynamic Text Substitution wiki.
 
 For what service has what fields, please check the specific wiki page for that service.
 
 ## Example `alarms.json`
 
-Below is a working alarm configuration for discord and slack:
+Below is a working alarm configuration for Discord and Slack:
 
 ```json
 [
@@ -132,24 +132,21 @@ Below is a working alarm configuration for discord and slack:
     "startup_message":"False",
     "pokemon":{
       "webhook_url":"DISCORD_WEBHOOK_URL_FOR_POKEMON_CHANNEL",
-      "username":"<pkmn>",
-      "icon_url" : "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
-      "title": "[<neighborhood>] <pkmn> (<iv>% <atk>/<def>/<sta>, <quick_move> / <charge_move>) at <address> <postal>",
+      "username":"<mon_name>",
+      "title": "<mon_name> **<cp>CP** (**<iv>% <atk>/<def>/<sta>**, <quick_move>/<charge_move>) at <address> <postal>",
       "url": "<gmaps>",
       "body": "Available until <24h_time> (<time_left> remaining)"
     },
     "pokestop":{
       "username":"Pokestop",
       "webhook_url":"DISCORD_WEBHOOK_URL_FOR_POKESTOP_CHANNEL",
-      "icon_url" : "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/pokestop.png",
       "title": "[<neighborhood>] <address> <postal>",
       "url": "<gmaps>",
       "body": "expires at <24h_time> (<time_left>)."
     },
     "gym":{
       "webhook_url":"DISCORD_WEBHOOK_URL_FOR_GYM_CHANNEL",
-      "username":"Pokemon Gym",
-      "icon_url" : "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/gym_<team_id>.png",
+      "username":"<new_team> Gym Alerts",
       "title": "[<neighborhood>] <address> <postal>",
       "url": "<gmaps>",
       "body": "A team <old_team> gym has fallen to <new_team>."
@@ -157,20 +154,16 @@ Below is a working alarm configuration for discord and slack:
     "egg": {
       "webhook_url":"DISCORD_WEBHOOK_URL_FOR_EGG_CHANNEL",
       "username": "Egg",
-      "icon_url": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/egg_<raid_level>.png",
-      "avatar_url": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/egg_<raid_level>.png",
       "title": "Raid is incoming!",
       "url": "<gmaps>",
-      "body": "A level <raid_level> raid will hatch <begin_24h_time> (<begin_time_left>)."
+      "body": "A level <egg_lvl> raid will hatch at <24h_hatch_time> (<hatch_time_left>)."
     },
     "raid": {
       "webhook_url":"DISCORD_WEBHOOK_URL_FOR_RAID_CHANNEL",
-      "username": "Raid",
-      "icon_url": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
-      "avatar_url": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/egg_<raid_level>.png",
-      "title": "Level <raid_level> Raid is available against <pkmn>!",
+      "username": "<mon_name> Raid",
+      "title": "Level <raid_lvl> raid is available against <mon_name>!",
       "url": "<gmaps>",
-      "body": "The raid is available until <24h_time> (<time_left>)."
+      "body": "The raid is available until <24h_raid_end> (<raid_time_left>)."
     }
   },
   {
@@ -181,8 +174,7 @@ Below is a working alarm configuration for discord and slack:
     "pokemon": {
       "channel": "pokemon",
       "username": "Pokemon",
-      "icon_url": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
-      "title": "*<pkmn>* (<iv>% <atk>/<def>/<sta>) in <neighborhood> at <address> <postal>",
+      "title": "*<mon_name>* (<iv>% <atk>/<def>/<sta>) in <neighborhood> at <address> <postal>",
       "url": "<gmaps>",
       "body": "Available until <24h_time> (<time_left>)\n*Moves:* <quick_move> / <charge_move>",
       "map": {
@@ -196,7 +188,6 @@ Below is a working alarm configuration for discord and slack:
     "pokestop": {
       "channel": "pokestops",
       "username": "Pokestop",
-      "icon_url": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/pokestop.png",
       "title": "[<neighborhood>] <address> <postal>",
       "url": "<gmaps>",
       "body": "expires at <24h_time> (<time_left>).",
@@ -210,8 +201,7 @@ Below is a working alarm configuration for discord and slack:
     },
     "gym": {
       "channel": "gyms",
-      "username": "Gym",
-      "icon_url": "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/gym_<team_id>.png",
+      "username": "<new_team> Gym Alerts",
       "title": "[<neighborhood>] <address> <postal>",
       "url": "<gmaps>",
       "body": "A team <old_team> gym has fallen to <new_team>.",

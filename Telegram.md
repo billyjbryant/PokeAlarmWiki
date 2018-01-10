@@ -1,5 +1,5 @@
 ## Overview
-* [Prerequisities](#prerequisites)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Basic Config](#basic-config)
   * [Required Parameters](#required-parameters)
@@ -28,7 +28,7 @@ Please familiarize yourself with all of the above before proceeding.
 PokeAlarm offers the following for Telegram:
 
 * Notifications to multiple Telegram channels
-* Customizable Google Map image of the pokemon, gym, and/or pokestop location
+* Customizable Google Map image of the pokemon, gym, pokestop, egg and/or raid location
 * Personalized notifications via [Dynamic Text Substitution](Dynamic-Text-Substitution)
 
 ## Basic Config
@@ -74,7 +74,7 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
 
 | Parameters | Description                                  | Default                                                  |
 |------------|----------------------------------------------|----------------------------------------------------------|
-| `title`    | Header text for the message                  | `A wild <pkmn> has appeared!`                            |
+| `title`    | Header text for the message                  | `A wild <mon_name> has appeared!`                        |
 | `body`     | Additional text to be added to the message		| `"<gmaps> \n Available until <24h_time> (<time_left>)."` |
 | `location` | Sends minimap after main message.            | `True`                                                   |
 | `disable_map_notification` | Disables map notifications. Set to `False` if you are experiencing notification issues on Android | `True` |
@@ -94,32 +94,32 @@ Below is how an advanced alarm configuration would appear in `alarms.json`. Note
     "stickers":"True",
     "pokemon":{
         "chat_id":"OVERRIDES_DEFAULT_CHANNEL",
-        "title":"A wild <pkmn> has appeared!",
-        "body":"<gmaps>\nAvailable until <24h_time> (<time_left>).",
+        "title":"A wild <mon_name> has appeared!",
+        "body":"Available until <24h_time> (<time_left>).",
         "location":"True"
     },
     "pokestop":{
         "chat_id":"OVERRIDES_DEFAULT_CHANNEL",
         "title":"Someone has placed a lure on a Pokestop!",
-        "body":"<gmaps>\nLure will expire at <24h_time> (<time_left>).",
+        "body":"Lure will expire at <24h_time> (<time_left>).",
         "location":"True"
     },
     "gym":{
         "chat_id":"OVERRIDES_DEFAULT_CHANNEL",
         "title":"A Team <old_team> gym has fallen!",
-        "body":"<gmaps>\nIt is now controlled by <new_team>.",
+        "body":"It is now controlled by <new_team>.",
         "location":"True"
     },
     "egg":{
         "chat_id":"OVERRIDES_DEFAULT_CHANNEL",
-        "title":"A level <raid_level> raid is incoming!",
-        "body":"<gmaps>\nThe egg will hatch <begin_24h_time> (<begin_time_left>).",
+        "title":"A level <egg_lvl> raid is incoming!",
+        "body":"The egg will hatch 24h_hatch_time> (<hatch_time_left>).",
         "location":"True"
     },
     "raid":{
         "chat_id":"OVERRIDES_DEFAULT_CHANNEL",
-        "title":"A raid is available against <pkmn>!",
-        "body":"<gmaps>\nThe raid is available until <24h_time> (<time_left>).",
+        "title":"A raid is available against <mon_name>!",
+        "body":"The raid is available until <24h_raid_end> (<raid_time_left>).",
         "location":"True"
     }
 }

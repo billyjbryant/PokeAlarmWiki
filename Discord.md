@@ -1,5 +1,5 @@
 ## Overview
-* [Prerequisities](#prerequisites)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Basic Config](#basic-config)
   * [Required Parameters](#required-parameters)
@@ -28,7 +28,7 @@ Please familiarize yourself with all of the above before proceeding.
 PokeAlarm offers the following for Discord:
 
 * Custom username for posting
-* High resolution icons for pokemon, gym, or pokestop notifications
+* High resolution icons for pokemon, gym, pokestop, egg or raid notifications
 * Personalized notifications via [Dynamic Text Substitution](Dynamic-Text-Substitution)
 
 
@@ -74,10 +74,10 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
 |------------------|---------------------------------------------------|-----------------------------------------------|
 | `webhook_url`    | URL of specific channel name.  Overrides `webhook_url` at Alarm level.  Use to post only
 | `disable_embed`  | Disables the body to make one line notifications  | `False`                                       |
-| `username`       | Username the bot should post the message as       | `<pkmn>`                                      |
+| `username`       | Username the bot should post the message as       | `<mon_name>`                                  |
 | `icon_url`       | URL path to pokemon icon                          |                                               |
 | `avatar_url`     | URL path to pokemon avatar                        |                                               |
-| `title`          | Notification text to begin the message            | `A wild <pkmn> has appeared!`                 |
+| `title`          | Notification text to begin the message            | `A wild <mon_name> has appeared!`             |
 | `url`            | Link to be added to notification text             | `<gmaps>`                                     |
 | `body`           | Additional text to be added to the message        | `Available until <24h_time> (<time_left>).`   |
 | `content`        | Text before the Discord embed                     |                                               |
@@ -96,24 +96,24 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
 	"startup_message":"False",
 	"pokemon":{
 		"webhook_url":"YOUR_WEBHOOK_URL_FOR_POKEMON_CHANNEL",
-		"username":"<pkmn>",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/<pkmn_id_3>_<form_or_empty>.png",
-		"title":"A wild <pkmn> has appeared!",
+		"username":"<mon_name>",
+		"icon_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_<form_id_3>.png",
+		"title":"A wild <mon_name> has appeared!",
 		"url":"<gmaps>",
 		"body":"Available until <24h_time> (<time_left>)."
 	},
 	"pokestop":{
 		"webhook_url":"YOUR_WEBHOOK_URL_FOR_POKESTOP_CHANNEL",
 		"username":"Pokestop",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/pokestop.png",
+		"icon_url*":"<YOUR CUSTOM URL HERE>/ready.png",
 		"title":"Someone has placed a lure on a Pokestop!",
 		"url":"<gmaps>",
 		"body":"Lure will expire at <24h_time> (<time_left>)."
 	},
 	"gym":{
 		"webhook_url":"YOUR_WEBHOOK_URL_FOR_GYM_CHANNEL",
-		"username":"Pokemon Gym",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/gym_<new_team_id>.png",
+		"username":"<new_team> Gym Alerts",
+		"icon_url*":"<YOUR CUSTOM URL HERE>/<new_team_id>.png",
 		"title":"A Team <old_team> gym has fallen!",
 		"url":"<gmaps>",
 		"body":"It is now controlled by <new_team>."
@@ -121,20 +121,20 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
 	"egg":{
 		"webhook_url":"DISCORD_WEBHOOK_URL_FOR_EGG_CHANNEL",
 		"username":"Egg",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/egg_<raid_level>.png",
-		"avatar_url*":"<YOUR CUSTOM URL HERE>/egg_<raid_level>.png",
+		"icon_url*":"<YOUR CUSTOM URL HERE>/<egg_lvl>.png",
+		"avatar_url*":"<YOUR CUSTOM URL HERE>/<egg_lvl>.png",
 		"title":"Raid is incoming!",
 		"url":"<gmaps>",
-		"body":"A level <raid_level> raid will hatch <begin_24h_time> (<begin_time_left>)."
+		"body":"A level <egg_lvl> raid will hatch at <24h_hatch_time> (<hatch_time_left>)."
 	},
 	"raid":{
 		"webhook_url":"DISCORD_WEBHOOK_URL_FOR_RAID_CHANNEL",
 		"username":"Raid",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/<pkmn_id_3>_<form_or_empty>.png",
-		"avatar_url*":"<YOUR CUSTOM URL HERE>/egg_<raid_level>.png",
-		"title":"Level <raid_level> Raid is available against <pkmn>!",
+		"icon_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_000.png",
+		"avatar_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_000.png",
+		"title":"Level <raid_lvl> Raid is available against <mon_name>!",
 		"url":"<gmaps>",
-		"body":"The raid is available until <24h_time> (<time_left>)."
+		"body":"The raid is available until <24h_raid_end> (<raid_time_left>)."
 	}
 }
 ```
@@ -149,8 +149,8 @@ Below is an example of enabling the mini map for pokemon.
 ```json
 	"pokemon":{
 		"webhook_url":"YOUR_WEBHOOK_URL_FOR_POKEMON_CHANNEL",
-		"username":"<pkmn>",
-		"title":"A wild <pkmn> has appeared!",
+		"username":"<mon_name>",
+		"title":"A wild <mon_name> has appeared!",
 		"url":"<gmaps>",
 		"body":"Available until <24h_time> (<time_left>).",
 		"map":{

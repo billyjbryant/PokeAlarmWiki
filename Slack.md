@@ -1,5 +1,5 @@
 ## Overview
-* [Prerequisities](#prerequisites)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Basic Config](#basic-config)
   * [Required Parameters](#required-parameters)
@@ -29,9 +29,9 @@ Please familiarize yourself with all of the above before proceeding.
 PokeAlarm offers the following for Slack:
 
 * Custom username for posting
-* High resolution icons for pokemon, gym, or pokestop notifications
+* High resolution icons for pokemon, gym, pokestop, egg and/or raid notifications
 * Notifications to multiple Slack channels and/or teams
-* Customizable Google Map image of the pokemon, gym, and/or pokestop location
+* Customizable Google Map image of the pokemon, gym, pokestop, egg and/or raid location
 * Personalized notifications via [Dynamic Text Substitution](Dynamic-Text-Substitution)
 
 ## Basic Config
@@ -73,10 +73,10 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
 
 | Parameters       | Description                                       | Default                                      |
 |------------------|---------------------------------------------------|----------------------------------------------|
-| `channel`        | Send messages to this channel. `#<pkmn>` pushes to pokemon name* | `#general`                    |
-| `username`       | Username the bot should post the message as       | `<pkmn>`                                     |
+| `channel`        | Send messages to this channel.                    | `#general`                                   |
+| `username`       | Username the bot should post the message as       | `<mon_name>`                                 |
 | `icon_url`       | URL path to pokemon icon                          |                                              |
-| `title`          | Notification text to begin the message            | `A wild <pkmn> has appeared!`                |
+| `title`          | Notification text to begin the message            | `A wild <mon_name> has appeared!`            |
 | `url`            | Link to be added to notification text             | `<gmaps>`                                    |
 | `body`           | Additional text to be added to the message        | `Available until <24h_time> (<time_left>).`  |
 | `map`            | Specify a json object to describe the map         | See Mini Map Configuration for more details  |
@@ -93,9 +93,9 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
     "startup_message":"True",
     "pokemon":{
         "channel":"general",
-        "username":"<pkmn>",
-        "icon_url*":"<YOUR CUSTOM URL HERE>/<pkmn_id_3>_<form_or_empty>.png",
-        "title":"A wild <pkmn> has appeared!",
+        "username":"<mon_name>",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_<form_id_3>.png",
+        "title":"A wild <mon_name> has appeared!",
         "url":"<gmaps>",
         "body":"Available until <24h_time> (<time_left>).",
         "map":{
@@ -109,32 +109,32 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
     "pokestop":{
         "channel":"general",
         "username":"Pokestop",
-        "icon_url*":"<YOUR CUSTOM URL HERE>/pokestop.png",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/ready.png",
         "title":"Someone has placed a lure on a Pokestop!",
         "url":"<gmaps>",
         "body":"Lure will expire at <24h_time> (<time_left>)."
     },
     "gym":{
         "channel":"general",
-        "username":"Pokemon Gym",
-        "icon_url*":"<YOUR CUSTOM URL HERE>/gym_<new_team_id>.png",
+        "username":"<new_team> Gym Alerts",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/<new_team_id>.png",
         "title":"A Team <old_team> gym has fallen!",
         "url":"<gmaps>",
         "body":"It is now controlled by <new_team>."
     },
     "egg":{
         "username":"Egg",
-        "icon_url*":"<YOUR CUSTOM URL HERE>/egg_<raid_level>.png",
-        "title":"A level <raid_level> raid is incoming!",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/<egg_lvl>.png",
+        "title":"A level <egg_lvl> raid is incoming!",
         "url":"<gmaps>",
-        "body":"The egg will hatch <begin_24h_time> (<begin_time_left>)."
+        "body":"The egg will hatch <24h_hatch_time> (<hatch_time_left>)."
     },
     "raid":{
-        "username":"<pkmn> Raid",
-        "icon_url*":"<YOUR CUSTOM URL HERE>/<pkmn_id_3>_<form_or_empty>.png",
-        "title":"A Raid is available against <pkmn>!",
+        "username":"<mon_name> Raid",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_000.png",
+        "title":"Level <raid_lvl> raid is available against <mon_name>!",
         "url":"<gmaps>",
-        "body":"The raid is available until <24h_time> (<time_left>)."
+        "body":"The raid is available until <24h_raid_end> (<raid_time_left>)."
     }
 }
 ```
@@ -154,8 +154,8 @@ Below is an example of enabling the mini map for pokemon.
 ```json
 	"pokemon":{
 		"channel":"general",
-		"username":"<pkmn>",
-		"title":"A wild <pkmn> has appeared!",
+		"username":"<mon_name>",
+		"title":"A wild <mon_name> has appeared!",
 		"url":"<gmaps>",
 		"body":"Available until <24h_time> (<time_left>).",
 		"map":{

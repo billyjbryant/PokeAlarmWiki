@@ -59,27 +59,27 @@ To learn all the ins and outs of Filters, you should checkout the [Filters](Filt
 ### Pokemon Filters
 In PokeAlarm, 'Filters' are used to determine if a notification needs to be sent or not. For example, when PokeAlarm receives information about a Pokemon, it compares it to the filters set for that Pokemon. If it fits the criteria, PA will send to the the Alarm we set up in the last section.
 
-First we want to make sure that Bulbasaur, Squirtle, and Charmander notifications are sent. We can set them up with the default filter by setting them to `"True"`.
+First we want to make sure that Bulbasaur, Charmander, and Squirtle notifications are sent. We can set them up with the default filter by setting them to `"true"`.
 ```json
 {
-  "pokemon":{
-     "enabled":"True",
-      "default": {
-        "min_dist":"0", "max_dist":"inf", "min_cp": "0", "max_cp": "4760", "min_iv":"0", "max_iv":"100",
-        "min_atk": "0", "max_atk":"15", "min_def": "0", "max_def":"15", "min_sta": "0", "max_sta":"15",
-        "quick_move": null, "charge_move": null, "moveset": null,
-        "size": null, "gender": null, "form": null,
-        "ignore_missing": "False"
-      },
-      "Bulbasaur": "True",
-      "Ivysaur": "False",
-      "Venusaur": "False",
-      "Charmander": "True",
-      "Charmeleon": "False",
-      "Charizard": "False",
-      "Squirtle": "True",
-      "Wartortle": "False",
-      "Blastoise": "False"
+  "monsters":{
+          "enabled": true,
+          "defaults": {
+          },
+          "filters": {
+              "filter-name": {
+                  "monsters": [ "Bulbasaur", "Charmander", "Squirtle" ],
+                  "min_dist": 0, "max_dist": "inf",
+                  "min_lvl": 0, "max_lvl": 40, "min_atk": 0, "max_atk": 15,
+                  "min_def": 0, "max_def": 15, "min_sta": 0, "max_sta": 15,
+                  "min_iv": 0.0, "max_iv": 100, "min_cp": 0, "max_cp": 10000,
+                  "form_ids": [ 0 ],
+                  "genders": [ "male", "female", "neutral"],
+                  "min_height": 0, "max_height": "inf",
+                  "min_weight": 0, "max_weight": "inf",
+                  "is_missing_info": false
+              }
+          }
   }
 }
 ```
@@ -87,7 +87,11 @@ First we want to make sure that Bulbasaur, Squirtle, and Charmander notification
 
 Next, we went to allow Dratini, but only for a certain IV range. For this to work, we want to override the default filter for ivs with the following:`"min_iv"` and `"max_iv"`. We can set Dratini as follows:
 ```
-"Dratini": { "min_iv":"95", "max_iv":"100"},
+"monsters": [ "Dratini" ],
+"min_dist": 0, "max_dist": "inf",
+"min_lvl": 0, "max_lvl": 40, "min_atk": 0, "max_atk": 15,
+"min_def": 0, "max_def": 15, "min_sta": 0, "max_sta": 15,
+"min_iv": 95, "max_iv": 100, "min_cp": 0, "max_cp": 10000,
 ```
 This will create a filter that is identical to the default except for the two fields we overwrote.
 
@@ -96,22 +100,25 @@ This will create a filter that is identical to the default except for the two fi
 Next we want to know whenever an Instinct gym goes down. Our Gym section is as follows:
 ```json
 {
-    "gyms":{
-      "enabled":"False",
-      "ignore_neutral":"True",
-      "filters":[
-        {
-          "from_team":["Instinct"],
-           "to_team":["Valor", "Instinct", "Mystic"],
-           "min_dist":"0", "max_dist":"inf"
-        }
-      ]
-    }
+  "gyms":{
+      "enabled": true,
+      "ignore_neutral": true,
+      "defaults": {
+      },
+      "filters": {
+          "filter-name" : {
+              "min_dist": 0, "max_dist": "inf",
+              "old_teams": [ "Instinct" ],
+              "new_teams": [ "Valor", "Instinct", "Mystic" ],
+              "is_missing_info": false
+          }
+      }
+  },
 }
 ```
 **Note**: for brevity only part of the filters file is shown
 
-This filter will allow in any gym that switches from Instinct to any other team. Additionally, we don't want to know about when it switches to neutral, so we set `"ignore_neutral":"True"`. You can list multiple different filters in the filters section of gyms, and PA will check them one by one.
+This filter will allow in any gym that switches from Instinct to any other team. Additionally, we don't want to know about when it switches to neutral, so we set `"ignore_neutral":"true"`. You can list multiple different filters in the filters section of gyms, and PA will check them one by one.
 
 
 ### Raid Filters
@@ -119,20 +126,20 @@ This filter will allow in any gym that switches from Instinct to any other team.
 Raid filters work very similar to Pokemon Filters. You can set up alerts for any pokemon - not just the ones in the example. Here is the Raid section of a filters file set up for legendary birds:
 ```json
 {
-    "raids":{
-        "enabled":"True",
-        "default": {
-            "min_dist":"0", "max_dist":"inf", "min_cp": "0", "max_cp": "999999", "min_iv":"0", "max_iv":"100",
-            "min_atk": "0", "max_atk":"15", "min_def": "0", "max_def":"15", "min_sta": "0", "max_sta":"15",
-            "quick_move": null, "charge_move": null, "moveset": null,
-            "size": null, "gender": null, "form": null, "ignore_missing": "False"
-        },
-        "Articuno":"True",
-        "Zapdos":"True",
-        "Moltres":"True",
-        "Lugia":"True",
-        "Ho-Oh":"True"
-    }
+  "raids":{
+      "enabled": true,
+      "defaults": {
+      },
+      "filters": {
+          "filter-name" : {
+              "monsters": [ 144, 145, 146, 249, 250 ],
+              "min_dist": 0, "max_dist": "inf",
+              "min_raid_lvl": 0, "max_raid_lvl": 5,
+              "min_cp": 0, "max_cp": 100000,
+              "is_missing_info": false
+          }
+      }
+  }
 }
 ```
 **Note**: for brevity only part of the filters file is shown
@@ -150,7 +157,7 @@ PokeAlarm allows you to customize the Alerts that it sends out. We want to custo
     "type": "discord",
     "webhook_url": "https://discordapp.com/api/webhooks/1234567890",
     "raids":{
-      "title": "The Legendary Bird <pkmn> has appeared! It has <cp> CP!"
+      "title": "The Legendary Bird <mon_name> has appeared! It has <cp> CP!"
     }
   }
 ]
@@ -167,11 +174,11 @@ You can customize any notification by adding the proper alert settings to your a
     "type": "discord",
     "webhook_url": "https://discordapp.com/api/webhooks/1234567890",
     "pokemon":{
-      "title": "The starter <pkmn> jumped out of the bushes!",
+      "title": "The starter <mon_name> jumped out of the bushes!",
       "body": "It has an IV of <iv>%!"
     },
     "raids":{
-      "title": "The Legendary Bird <pkmn> has appeared! It has <cp> CP!"
+      "title": "The Legendary Bird <mon_name> has appeared! It has <cp> CP!"
     }
   }
 ]
@@ -189,18 +196,24 @@ You can find out more about Manager's and their settings on the [Managers](manag
 First, lets make two different filter files. We will call the following filter file `starters_filter.json`:
 ```json
 {
-  "pokemon":{
-        "enabled":"True",
-        "default": {
-            "min_dist":"0", "max_dist":"inf", "min_cp": "0", "max_cp": "4760", "min_iv":"0", "max_iv":"100",
-            "min_atk": "0", "max_atk":"15", "min_def": "0", "max_def":"15", "min_sta": "0", "max_sta":"15",
-            "quick_move": null, "charge_move": null, "moveset": null,
-            "size": null, "gender": null, "form": null,
-            "ignore_missing": "False"
-        },
-        "Bulbasaur":"True",
-        "Charmander":"True",
-        "Squirtle": "True"
+  "monsters":{
+          "enabled": true,
+          "defaults": {
+          },
+          "filters": {
+              "filter-name": {
+                  "monsters": [ 1, 4, 7 ],
+                  "min_dist": 0, "max_dist": "inf",
+                  "min_lvl": 0, "max_lvl": 40, "min_atk": 0, "max_atk": 15,
+                  "min_def": 0, "max_def": 15, "min_sta": 0, "max_sta": 15,
+                  "min_iv": 0.0, "max_iv": 100, "min_cp": 0, "max_cp": 10000,
+                  "form_ids": [ 0 ],
+                  "genders": [ "male", "female", "neutral"],
+                  "min_height": 0, "max_height": "inf",
+                  "min_weight": 0, "max_weight": "inf",
+                  "is_missing_info": false
+              }
+          }
   }
 }
 ```
@@ -209,16 +222,24 @@ First, lets make two different filter files. We will call the following filter f
 Next, we can make a second filter file for Dratini. We will call this one `dragon_filters.json`:
 ```json
 {
-  "pokemon":{
-        "enabled":"True",
-        "default": {
-            "min_dist":"0", "max_dist":"inf", "min_cp": "0", "max_cp": "4760", "min_iv":"0", "max_iv":"100",
-            "min_atk": "0", "max_atk":"15", "min_def": "0", "max_def":"15", "min_sta": "0", "max_sta":"15",
-            "quick_move": null, "charge_move": null, "moveset": null,
-            "size": null, "gender": null, "form": null,
-            "ignore_missing": "False"
-        },
-        "Dratini":"True"
+  "monsters":{
+          "enabled": true,
+          "defaults": {
+          },
+          "filters": {
+              "filter-name": {
+                  "monsters": [ 147 ],
+                  "min_dist": 0, "max_dist": "inf",
+                  "min_lvl": 0, "max_lvl": 40, "min_atk": 0, "max_atk": 15,
+                  "min_def": 0, "max_def": 15, "min_sta": 0, "max_sta": 15,
+                  "min_iv": 0.0, "max_iv": 100, "min_cp": 0, "max_cp": 10000,
+                  "form_ids": [ 0 ],
+                  "genders": [ "male", "female", "neutral"],
+                  "min_height": 0, "max_height": "inf",
+                  "min_weight": 0, "max_weight": "inf",
+                  "is_missing_info": false
+              }
+          }
   }
 }
 ```
@@ -232,7 +253,7 @@ We want the alerts from `starter_filters.json` to be different than the ones fro
     "type": "discord",
     "webhook_url": "https://discordapp.com/api/webhooks/1234567890",
     "pokemon":{
-      "title": "The starter <pkmn> jumped out of the bushes!",
+      "title": "The starter <mon_name> jumped out of the bushes!",
       "body": "It has an IV of <iv>%!"
     }
   }
@@ -246,7 +267,7 @@ As you can see, it is the same one as before. Here is what the `dragons_alarms.j
     "type": "discord",
     "webhook_url": "https://discordapp.com/api/webhooks/1234567890",
     "pokemon":{
-      "title": "The high IV dragon <pkmn> appears with a roar!",
+      "title": "The high IV dragon <mon_name> appears with a roar!",
       "body": "It has an IV of <iv>%!"
     }
   }
@@ -258,6 +279,6 @@ Now we have two different filters and two different alarm files. Now we just nee
 python start_pokealarm.py -m 2 -f starter_filters.json -a starter_alarms.json -f dragon_filters.json -a dragon_filters.json
 ```
 
-The `-m` flag tells PA that we want 2 managers. The first manager uses the first file specified by `-f` and the first file specified by `-a`. The second manager uses the second filter and second alarm file. You can keep going and add as many managers as you would like! Managers run in seperate processes, so they run concurrently and scale well with the number of cores on your machine.
+The `-m` flag tells PA that we want 2 managers. The first manager uses the first file specified by `-f` and the first file specified by `-a`. The second manager uses the second filter and second alarm file. You can keep going and add as many managers as you would like! Managers run in separate processes, so they run concurrently and scale well with the number of cores on your machine.
 
 Managers are a great tool that allow you to mix and match almost every setting to any filter or alarm settings. For full details on the power of Managers, don't forget to check out [Managers](managers) wiki page.

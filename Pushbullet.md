@@ -1,5 +1,5 @@
 ## Overview
-* [Prerequisities](#prerequisities)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Basic Config](#basic-config)
   * [Required Parameters](#required-parameters)
@@ -10,8 +10,8 @@
 * [How to Get a Pushbullet API Key](#how-to-get-a-pushbullet-api-key)
 
 
-## Prerequisities
-This guide assumes: 
+## Prerequisites
+This guide assumes:
 
 1. You are familiar with [JSON formatting](https://www.w3schools.com/js/js_json_intro.asp)
 2. You have read and understood the [Alarms](alarms) Wiki
@@ -24,7 +24,7 @@ Please familiarize yourself with all of the above before proceeding.
 PokeAlarm offers the following for Pushbullet:
 
 * Notifications to multiple Pushbullet channels
-* Customizable Google Map image of the pokemon, gym, and/or pokestop location
+* Customizable Google Map image of the pokemon, gym, pokestop, egg and/or raid location
 * Personalized notifications via [Dynamic Text Substitution](Dynamic-Text-Substitution)
 
 ## Basic Config
@@ -66,9 +66,9 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
 | Parameters     | Description                                       | Default                                       |
 |:-------------- |:--------------------------------------------------|:----------------------------------------------|
 |`channel`       | Channel tag of the target channel                 | Sends to all devices                          |
-|`title`         | Notification title  attached to the push          | `A wild <pkmn> has appeared!`                 |
+|`title`         | Notification title  attached to the push          | `A wild <mon_name> has appeared!`             |
 |`url`           | Link to be attached to the push                   | `<gmaps>`                                     |
-|`body`          | Message attched to the push                       | `Available until <24h_time> (<time_left>).`   |                                  
+|`body`          | Message attached to the push                       | `Available until <24h_time> (<time_left>).`  |
 
 ### Example: Alarm Configuration Using Optional Parameters
 ```json
@@ -78,7 +78,7 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
     "api_key":"YOUR_API_KEY",
     "channel":"DEFAULT_CHANNEL",
     "pokemon":{
-        "title":"A wild <pkmn> has appeared!",
+        "title":"A wild <mon_name> has appeared!",
         "url":"<gmaps>",
         "body":"Available until <24h_time> (<time_left>).",
         "channel":"OVERRIDES_DEFAULT_CHANNEL"
@@ -96,15 +96,15 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
         "channel":"OVERRIDES_DEFAULT_CHANNEL"
     },
     "egg": {
-        "title": "A level <raid_level> raid is incoming!",
+        "title": "A level <egg_lvl> raid is incoming!",
         "url": "<gmaps>",
-        "body": "The egg will hatch <begin_24h_time> (<begin_time_left>).",
+        "body": "The egg will hatch <24h_hatch_time> (<hatch_time_left>).",
         "channel":"OVERRIDES_DEFAULT_CHANNEL"
     },
     "raid": {
-        "title": "A Raid is available against <pkmn>!",
+        "title": "Level <raid_lvl> raid is available against <mon_name>!",
         "url": "<gmaps>",
-        "body": "The raid is available until <24h_time> (<time_left>)."
+        "body": "The raid is available until <24h_raid_end> (<raid_time_left>)."
     }
 }
 ```
@@ -116,4 +116,4 @@ These optional parameters below are applicable to the `pokemon`, `pokestop`, `gy
 
 2. In the top right corner, click on the letter and select 'My Account'.
 
-3. Scroll down to 'Create Access Token`. Copy this token and place it in api_key paramater. 
+3. Scroll down to 'Create Access Token`. Copy this token and place it in api_key parameter.

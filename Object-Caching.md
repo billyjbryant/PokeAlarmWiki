@@ -1,5 +1,5 @@
 ### Overview
-* [Prerequisities](#prerequisities)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Caching Methods](#caching-methods)
   * [Memory Cache](#memory-cache)
@@ -7,8 +7,8 @@
     * [Multiple Instances](#multiple-instances)
 * [Clearing Cache](#clearing-cache)
 
-### Prerequisities
-  
+### Prerequisites
+
 This guide assumes:
 
 1. You have a functional PokeAlarm installation
@@ -17,7 +17,7 @@ This guide assumes:
 
 ### Introduction
 
-PokeAlarm uses `Cache` objects to store information that is not present on runtime.  The cached objects store informatino such as `gym-info` and other dynamic objects sent into PokeAlarm via webhook.  Cached data is used for internal calcuations as well as to provide details for [Dynamic Text Substitution](dynamic-text-substitution) in [Alarms](alarms). 
+PokeAlarm uses `Cache` objects to store information that is not present on runtime.  The cached objects store information such as `gym-info` and other dynamic objects sent into PokeAlarm via webhook.  Cached data is used for internal calculations as well as to provide details for [Dynamic Text Substitution](dynamic-text-substitution) in [Alarms](alarms).
 
 ### Caching Methods
 
@@ -45,4 +45,4 @@ Using File caching with multiple instances can cause conflicts as cache files ar
 ### Clearing Cache
 
 * **Memory Cache** is cleared whenever PA exits for any reason.  
-* **File Caches** may be cleared by deleting the `cache/<manager_name>.cache` file that cooresponds to the manager you wish to clear the cache for.  (To clear all cached data, delete all files in the cache folder).  PA will need to be restarted once cache files are erased. 
+* **File Caches** may be cleared by deleting the `cache/<manager_name>.cache` file that corresponds to the manager you wish to clear the cache for.  (To clear all cached data, delete all files in the cache folder).  PA will need to be restarted once cache files are erased.

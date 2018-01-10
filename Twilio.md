@@ -1,5 +1,5 @@
 ## Overview
-* [Prerequisities](#prerequisities)
+* [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Basic Config](#basic-config)
   * [Required Parameters](#required-parameters)
@@ -11,7 +11,7 @@
 * [How to get the Account SID, Auth Token, and Twilio Number](#how-to-get-the-account-sid-auth-token-and-twilio-number)
 
 
-## Prerequisities
+## Prerequisites
 This guide assumes:
 
 1. You are familiar with [JSON formatting](https://www.w3schools.com/js/js_json_intro.asp)
@@ -29,8 +29,9 @@ PokeAlarm offers the following for Twilio:
 
 ## Basic Config
 These `alarms.json` parameters are required to enable the alarm service:
+
 ### Required Parameters
-| Parameters     | Description                            | 
+| Parameters     | Description                            |
 |:-------------- |:---------------------------------------|
 |`type`          | must be `twilio`                       |
 |`active`        | 'True' for alarm to be active          |
@@ -54,6 +55,7 @@ These `alarms.json` parameters are required to enable the alarm service:
 
 ## Advanced Config
 In addition to the above required parameters, several optional parameters are available to personalize your notifications.
+
 ### Multiple Destinations
 
 The `to_number` field can accept either a single destination phone number or an array of phone numbers to send SMS messages to. This allows for sending SMS alerts to multiple destinations.
@@ -75,19 +77,29 @@ Below is an example of using an array for the destination number(s) in the alarm
 These optional parameters below are applicable to the `pokemon`, `pokestop`, `gym`, `egg`, and `raid` alarm code of the JSON file.
 
 #### Optional Pokemon Parameters
-| Parameters    | Description                                       | Default																			|
-|:--------------|:--------------------------------------------------|:----------------------------------------------------------------------------------|
-|`message`		| Text message for pokemon updates	                | `"A wild <pkmn> has appeared! <gmaps> Available until <24h_time> (<time_left>)."`	|
+| Parameters  | Description                     | Default                                                    |
+|:------------|:--------------------------------|:-----------------------------------------------------------|
+|`message`		| Text message for pokemon updates	| `"A wild <mon_name> has appeared! <gmaps> Available until <24h_time> (<time_left>)."` |
 
 #### Optional Pokestop Parameters
-| Parameters    | Description                                       | Default																			|
-|:--------------|:--------------------------------------------------|:----------------------------------------------------------------------------------|
-|`message`		| Text message for pokestop updates		            | `"Someone has placed a lure on a Pokestop! <gmaps> Lure will expire at <24h_time> (<time_left>)."`	|
+| Parameters  | Description                            | Default																			                 |
+|:------------|:---------------------------------------|:--------------------------------------------------------------|
+|`message`		| Text message for pokestop updates		   | `"Someone has placed a lure on a Pokestop! <gmaps> Lure will expire at <24h_time> (<time_left>)."` |
 
 #### Optional Gym Parameters
-| Parameters    | Description                                       | Default																			|
-|:--------------|:--------------------------------------------------|:----------------------------------------------------------------------------------|
-|`message`		| Text message for gym updates 						| `"A Team <old_team> gym has fallen! It is now controlled by <new_team>. <gmaps>"`	|
+| Parameters  | Description                          | Default                                                       |
+|:------------|:-------------------------------------|:--------------------------------------------------------------|
+|`message`		| Text message for gym updates         | `"A Team <old_team> gym has fallen! <gmaps> It is now controlled by <new_team>."` |
+
+#### Optional Egg Parameters
+| Parameters  | Description                          | Default                                                       |
+|:------------|:-------------------------------------|:--------------------------------------------------------------|
+|`message`		| Text message for egg updates         | `"A level <egg_lvl> raid is incoming! <gmaps> Egg hatches <24h_hatch_time> (<hatch_time_left>)."` |
+
+#### Optional Raid Parameters
+| Parameters  | Description                          | Default                                                       |
+|:------------|:-------------------------------------|:--------------------------------------------------------------|
+|`message`		| Text message for raid updates        | `"Level <raid_lvl> raid against <mon_name>! <gmaps> Available until <24h_raid_end> (<raid_time_left>)."` |
 
 
 #### Example: Alarm Configuration Using Optional Parameters
@@ -103,7 +115,7 @@ Below is an example of these optional parameters and how they are incorporated i
     "pokemon":{
         "from_number":"YOUR_FROM_NUM",
         "to_number":"YOUR_TO_NUM",
-        "message": "A wild <pkmn> has appeared! <gmaps> Available until <24h_time> (<time_left>)."
+        "message": "A wild <mon_name> has appeared! <gmaps> Available until <24h_time> (<time_left>)."
     },
     "pokestop":{
         "from_number":"YOUR_FROM_NUM",
@@ -113,13 +125,13 @@ Below is an example of these optional parameters and how they are incorporated i
     "gym":{
         "from_number":"YOUR_FROM_NUM",
         "to_number":"YOUR_TO_NUM",
-        "message": "A Team <old_team> gym has fallen! It is now controlled by <new_team>. <gmaps>"
+        "message": "A Team <old_team> gym has fallen! <gmaps> It is now controlled by <new_team>."
     },
     "egg": {
-        "message": "A level <raid_level> raid is incoming! <gmap> Egg hatches <begin_24h_time> (<begin_time_left>)."
+        "message": "A level <egg_lvl> raid is incoming! <gmaps> Egg hatches <24h_hatch_time> (<hatch_time_left>)."
     },
     "raid": {
-       "message": "A raid on <pkmn> is available! <gmap> Available until <24h_time> (<time_left>)."
+       "message": "Level <raid_lvl> raid against <mon_name>! <gmaps> Available until <24h_raid_end> (<raid_time_left>)."
     }
 }
 ```
@@ -131,6 +143,6 @@ Below is an example of these optional parameters and how they are incorporated i
 
 2. On the left hand side, click the Home Button and then click Dashboard. The **Account SID** and **Auth Token** will be listed. To reveal the Auth Token, click on the lock next to it.
 
-3. Scroll down and click on '# Phone Numbers'. Then click 'Get Started' to get your free number. 
+3. Scroll down and click on '# Phone Numbers'. Then click 'Get Started' to get your free number.
 
 4. If you wish to text to different numbers, you need to register each before you are allowed to message them. This can be done from the 'Verified Caller ID's' page.
