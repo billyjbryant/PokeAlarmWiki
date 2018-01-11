@@ -1,10 +1,11 @@
 ### **Wiki Contents**  
-[Home](home)    
+[Home](home)  
+[FAQ](faq)  
 [Installation](installation)  
-[FAQ](faq)
+[Getting Started Guide](Getting-Started-Guide)  
 
-### **Settings**
-[Configuring PokeAlarm](configuring-pokeAlarm)   
+
+### **Settings** 
 [Server Settings](server-settings)  
 [Alarms](alarms)  
 [Geofences](geofences)  
