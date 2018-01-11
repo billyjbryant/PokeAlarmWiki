@@ -79,7 +79,7 @@ PokeAlarm will compare each Event to each Filter, one by one. If an
 Event passes a Filter, it will be passed onto the Alarms to trigger a
 notification. **Note:** Only one filter can be trigger at a time.
 
-### Pokemon Filters
+### Monster Filters
 First, we want to decide which monsters we want notifications on. I want
 to create an army of Charizards, so I'm going to need a lot of candy! 
 I'm going to create a new filter named `best_monsters` and set it 
@@ -124,7 +124,7 @@ Charmander!). Let's add another filter, but for IV's above 90%.
 }
 ```
 
-Wew! I got tired of typing out the numbers, so I just substituted
+Wew! I got tired of typing out the names, so I just substituted
 in their ID numbers instead (and PA is A-OKAY with that). I could have
 also added in `"max_iv": 100` as well, but it is always better to leave
 out unnecessary parameters (not only is it faster, but it can help avoid
@@ -237,7 +237,7 @@ the following:
 ```
 **Note**: for brevity only part of the alarms file is shown
 
-You can customize more than just the title - each service have many
+You can customize more than just the title - each service has many
 different options. Check out the wiki page for your specific service
 for a full list.
 
