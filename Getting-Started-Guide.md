@@ -1,15 +1,18 @@
 ## Overview
-This guide contains an overview to the different parts of configuring and customizing PokeAlarm to fit your needs.
+This guide contains an overview to the different parts of configuring 
+and customizing PokeAlarm to fit your needs.
 
 * [Prerequisites](#prerequisites)
 * [Goals](#goals)
 * [Setting up an Alarm](#setting-up-an-alarm)
 * [Setting up Filters](#setting-up-filters)
-  * [Pokemon Filters](#pokemon-filters)
+  * [Monster Filters](#monster-filters)
   * [Gym Filters](#gym-filters)
   * [Raid Filters](#raid-filters)
 * [Customizing Alert Text](#customizing-alert-text)
-* [Adding Additional Managers](#adding-additional-managers)
+* [Advanced: Managers](#advanced-managers)
+* [Advanced: Missing Info](#advanced-missing-info)
+* [Advanced: Custom DTS](#advanced-custom-dts)
 
 ## Prerequisites
 This guide assumes the following:
@@ -23,15 +26,16 @@ break your files!
 
 ## Goals
 
-This guide will walk you through setting up and customizing PokeAlarm to fit your needs. Specifically, we will go through setting up a PA server to do the following:
+This guide will walk you through setting up and customizing PokeAlarm 
+to fit your needs. Specifically, we will go through setting up a PA 
+server to do the following:
 
 1. Use Discord
-2. Alert when Bulbasaur, Squirtle, and Charmander are found.
-3. Alert when a Dratini is found with 95% IV's or higher
-4. Alert when an Instinct Gym falls (since that is clearly the superior team)
+2. Alert when Charmander family monsters are found.
+3. Customize alerts for the other two starters based on IVs
+4. Alert when an Instinct Gym falls (clearly the superior team)
 5. Alert when a Raid appears for Legendary Birds
-6. Customize the Pokemon and Raid Alerts
-6. Send different alerts to different channels
+6. Customize the Monster and Raid Alerts text with DTS
 
 ## Setting up an Alarm
 
@@ -344,3 +348,120 @@ too many managers canbe inefficient and waste your computers resources.
 Managers are a great tool that allow you to mix and match almost every 
 setting to any filter or alarm settings. For full details on the power 
 of Managers, don't forget to check out [Managers](managers) wiki page.
+
+## Advanced: Missing Info
+
+Sometimes, Event's are missing information needed to correctly filter 
+them. In these instances, you can use the `"is_missing_info"` parameter
+to require a filter to reject or allow Events with missing information. 
+You can read more about the feature on the 
+[Filters](filters-overview#missing-info) wiki page.
+
+I really only want monsters like Bulbasaur and Squirtle to trigger
+notifications if they have the right ivs that I am looking for. If my 
+scanner goofs up and doesn't get the ivs, I don't want to be bothered.
+Setting `"is_missing_info": false` tells that filter to reject if 
+any necessary information is missing.
+
+```json
+{
+  "monsters":{
+          "enabled": true,
+          "defaults": {
+          },
+          "filters": {
+              "best_monsters": { 
+                "monsters": ["Charmander", "Charmeleon", "Charizard"]
+              },
+              "okay_monsters": { 
+                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+                "min_iv": 90, "is_missing_info": false
+              }
+          }
+  }
+}
+```
+
+## Advanced: Custom DTS
+
+Custom DTS is a feature that let's you define filter-specific DTS that 
+ONLY work when that filter passes. You can read more about it on the 
+[Filters](filters-overview#custom-dts) wiki page.
+
+I can use it to change certain text depending on which filters pass.
+```json
+{
+  "monsters":{
+          "enabled": true,
+          "defaults": {
+          },
+          "filters": {
+              "best_monsters": { 
+                "monsters": ["Charmander", "Charmeleon", "Charizard"],
+                "custom_dts": { "is_fav": "IS"}
+              },
+              "okay_monsters": { 
+                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+                "min_iv": 90, "is_missing_info": false,
+                "custom_dts": { "is_fav": "IS NOT"}
+              }
+          }
+  }
+}
+```
+
+If I used the following phrase in an `alarms.json`:
+`"<mon_name> <is_fav> my FAVORITE!"` 
+could look like this if it passed the first filter:
+`Charmander IS my FAVORITE!`
+or like this if it passed the second filter:
+`Squirtle IS NOT my FAVORITE!`
+
+This feature, could be used for a variety of things like tagging special
+roles or even changing channels based on the filter selected.
+
+For example, say I changed my mind and DO want notifications from the
+other starters, but I want them to go into a different channel. First, 
+I would modify my `filters.json` to add in a DTS:
+
+```json
+{
+  "monsters":{
+          "enabled": true,
+          "defaults": {
+          },
+          "filters": {
+              "best_monsters": { 
+                "monsters": ["Charmander", "Charmeleon", "Charizard"],
+                "custom_dts": { "channel_api_key": "11111"}
+              },
+              "okay_monsters": { 
+                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+                "min_iv": 90, "is_missing_info": false,
+                "custom_dts": { "channel_api_key": "11111"}
+              },
+              "okay_monsters_no_iv": { 
+                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+                "min_iv": 90, "is_missing_info": true,
+                "custom_dts": { "channel_api_key": "22222"}
+              }
+          }
+  }
+}
+```
+
+Next, I can change my `alarms.json`:
+```json
+[
+  {
+    "active": "True",
+    "type": "discord",
+    "webhook_url": "https://discordapp.com/api/webhooks/<channel_api_key>"
+  }
+]
+```
+
+Now, if it passes "best_monsters" or "okay_monsters" it'll send to the
+channel at `https://discordapp.com/api/webhooks/11111`. If it passes
+"okay_monsters_no_iv" then it will be sent to the channel at
+`https://discordapp.com/api/webhooks/22222`. 

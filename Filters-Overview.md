@@ -73,6 +73,11 @@ filters represented as key-value pairs. The key represents the
 type of Event contains it's own parameters, which are listed on the
 corresponding filters page for each filter.
 
+**IMPORTANT:** Filter's ONLY check parameters IF you list them.
+Don't enter parameters that you don't want - this can cause unwanted
+affects (for example `"min_dist"` with `"is_missing_info":true` will
+reject ALL events if the server setting `location` is not set)
+
 An example filters section looks like this:
 ```json
 "filters": {
@@ -157,17 +162,27 @@ If a parameter is set to `null`, it is the same as not being set all.
 ### Missing Info
 
 For a variety of reasons, an Event may be missing information needed to
-properly check it.
+properly check it. In these cases, the `"is_missing_info"` parameter 
+decides how a filter handles it.
 
-When the `"is_missing_info"` parameter is set to true, filters will
-only allow Events with checked information missing.
+**IMPORTANT:** `"is_missing_info"`: ONLY applies to necessary 
+information. Information is necessary only if being used to filter. If 
+`"min_iv"` or `"max_iv"` aren't set, it doesn't matter if `iv` is 
+unknown or not.
 
-When the `"is_missing_info"` parameter is set to false, filters will
-only allow Events with all checked information present.
+With the `"is_missing_info": false` parameter, filters will ONLY allow 
+Events with all necessary information. If `"min_dist"` is set but the
+`dist` is unknown, it will be rejected.
 
-**Note:** `"is_missing_info"` ONLY applies to event information already
-checked by the filter. For example, It will not check for `iv` unless
-`"min_iv"` or `"max_iv"` are set.
+With the `"is_missing_info": true` parameter, filters will ONLY allow 
+Events that ARE MISSING INFOrmation. If `"max_iv"` is set and the ivs
+are unknown, it will be rejected.
+
+When `"is_missing_info"` is NOT included in the filter, it will simply 
+skip any checks on missing information. If you have `"min_iv":90` set 
+but no `"is_missing_info`", PA will still pass monsters 
+where 'iv` is unknown.
+
 
 ### Geofence
 
