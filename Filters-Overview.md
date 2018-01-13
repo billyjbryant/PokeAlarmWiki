@@ -25,11 +25,13 @@ filters defined in your `filters.json` configuration file.
 
 A `filters.json` file is composed of a single JSON object with five
 different subsections. Each section defines different settings for each
-different type of event. Currently, PA supports
-[Monsters](Monster-Filters),
-[Stops](Stop-Filters), [Gyms](Gym-Filters), [Eggs](Egg-Filters),
-and [Raids](Raid-Filters) as Event types.
-
+different type of event. A list of parameters available for each type of 
+filter can be found on the following pages:
+* [Monsters](Monster-Filters)
+* [Stops](Stop-Filters)
+* [Gyms](Gym-Filters)
+* [Eggs](Egg-Filters)
+* [Raids](Raid-Filters) 
 The basic structure of `filters.json` is as follows:
 
 ```json
