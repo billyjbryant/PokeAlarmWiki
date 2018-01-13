@@ -61,7 +61,10 @@ These optional parameters are entered at the same level as `"type":"facebook_pag
 These optional parameters below are applicable to the `pokemon`, `pokestop`, `gym`, `egg`, and `raid` sections of the JSON file.
 Check Image column to see where everything appears in the final publication.
 
-![](images/Facebook.png)  
+
+
+![Facebook Example](images/fb-example.png)
+
 
 | Parameters       | Description                                       | Image |
 |------------------|---------------------------------------------------|-------|

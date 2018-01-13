@@ -113,7 +113,7 @@ Below is how an advanced alarm configuration would appear in `alarms.json`. Note
     "egg":{
         "chat_id":"OVERRIDES_DEFAULT_CHANNEL",
         "title":"A level <egg_lvl> raid is incoming!",
-        "body":"The egg will hatch 24h_hatch_time> (<hatch_time_left>).",
+        "body":"The egg will hatch <24h_hatch_time> (<hatch_time_left>).",
         "location":"True"
     },
     "raid":{
