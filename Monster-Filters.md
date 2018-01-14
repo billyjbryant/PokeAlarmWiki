@@ -35,6 +35,8 @@ Monster Filters can use the following parameters to filter Events:
 | max_dist    | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` *|
 | min_lvl     | Minimum level of the monster.                | `0`     |
 | max_lvl     | Maximum level of the monster.                | `40`    |
+| min_cp      | Minimum CP of the monster.                   | `0`     |
+| max_cp      | Maximum CP of the monster.                   | `10000` |
 | min_atk     | Minimum attack IV of the monster.            | `0`     |
 | max_atk     | Maximum attack IV of the monster.            | `15`    |
 | min_def     | Minimum defense IV of the monster.           | `0`     |

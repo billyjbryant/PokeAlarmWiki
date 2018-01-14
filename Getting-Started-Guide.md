@@ -1,5 +1,5 @@
 ## Overview
-This guide contains an overview to the different parts of configuring 
+This guide contains an overview to the different parts of configuring
 and customizing PokeAlarm to fit your needs.
 
 * [Prerequisites](#prerequisites)
@@ -17,17 +17,17 @@ and customizing PokeAlarm to fit your needs.
 ## Prerequisites
 This guide assumes the following:
 
-1. You have correctly [installed PokeAlarm](installation), including 
+1. You have correctly [installed PokeAlarm](installation), including
 setting up a source for your information.
 
-2. You are using Notepad++, Nano, or Vi(m) to configure any files. Do 
-**NOT** use or open any files with Notepad or TextEdit - they will 
+2. You are using Notepad++, Nano, or Vi(m) to configure any files. Do
+**NOT** use or open any files with Notepad or TextEdit - they will
 break your files!
 
 ## Goals
 
-This guide will walk you through setting up and customizing PokeAlarm 
-to fit your needs. Specifically, we will go through setting up a PA 
+This guide will walk you through setting up and customizing PokeAlarm
+to fit your needs. Specifically, we will go through setting up a PA
 server to do the following:
 
 1. Use Discord
@@ -39,17 +39,17 @@ server to do the following:
 
 ## Setting up an Alarm
 
-In PokeAlarm, an 'Alarm' is a block in the Alarms.json section that 
-represents how you want to receive an alert. For our example, we will 
+In PokeAlarm, an 'Alarm' is a block in the Alarms.json section that
+represents how you want to receive an alert. For our example, we will
 use Discord, but the steps are similar between types of Alarms.
 
 To create a Discord Alarm, you should be familiar with these two pages:
-1. Learn how to configure your alarms file with the [Alarms](alarms) 
+1. Learn how to configure your alarms file with the [Alarms](alarms)
 wiki page.
 2. Learn how to set up a Discord webhook url with the [Discord](discord)
 wiki page.
 
-Once we have our webhook url set up, we can edit the default discord 
+Once we have our webhook url set up, we can edit the default discord
 alarm in the `alarms.json` file:  
 ```json
 [
@@ -62,16 +62,16 @@ alarm in the `alarms.json` file:
 ```
 **Note**: for brevity only the discord section is shown
 
-Try starting PokeAlarm - If you have configured your Alarm correctly, 
+Try starting PokeAlarm - If you have configured your Alarm correctly,
 you should see a start up message posted in your discord channel!
 
 ## Setting up Filters
 
 Filters are how PokeAlarm decides which Events get sent to sent to the
-Alarms to trigger notifications. To get all the details of Filters, 
-read the [Filters](Filters-Overview) wiki page. 
+Alarms to trigger notifications. To get all the details of Filters,
+read the [Filters](Filters-Overview) wiki page.
 
-In PokeAlarm, there are five different types of events. In a filter's 
+In PokeAlarm, there are five different types of events. In a filter's
 config file, there is a section for setting filters in each type of
 event: `monsters`, `stops`, `gyms`, `eggs`, and `raids`.
 
@@ -81,8 +81,8 @@ notification. **Note:** Only one filter can be trigger at a time.
 
 ### Monster Filters
 First, we want to decide which monsters we want notifications on. I want
-to create an army of Charizards, so I'm going to need a lot of candy! 
-I'm going to create a new filter named `best_monsters` and set it 
+to create an army of Charizards, so I'm going to need a lot of candy!
+I'm going to create a new filter named `best_monsters` and set it
 to accept only the Charmander family:
 ```json
 {
@@ -91,7 +91,7 @@ to accept only the Charmander family:
           "defaults": {
           },
           "filters": {
-              "best_monsters": { 
+              "best_monsters": {
                 "monsters": ["Charmander", "Charmeleon", "Charizard"]
               }
           }
@@ -100,9 +100,9 @@ to accept only the Charmander family:
 ```
 **Note**: for brevity only part of the filters file is shown
 
-Bam! That was easy! So easy, maybe we should get a few of the other 
-starters as well. However let's only get the other starters with high 
-IVs (only the best IV's can compete with a monster as good as 
+Bam! That was easy! So easy, maybe we should get a few of the other
+starters as well. However let's only get the other starters with high
+IVs (only the best IV's can compete with a monster as good as
 Charmander!). Let's add another filter, but for IV's above 90%.
 
 ```json
@@ -112,11 +112,11 @@ Charmander!). Let's add another filter, but for IV's above 90%.
           "defaults": {
           },
           "filters": {
-              "best_monsters": { 
+              "best_monsters": {
                 "monsters": ["Charmander", "Charmeleon", "Charizard"]
               },
-              "okay_monsters": { 
-                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+              "okay_monsters": {
+                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
                 "min_iv": 90
               }
           }
@@ -132,9 +132,9 @@ unintended things from happening!).
 
 ### Gym Filters
 
-Next, I want need to know when any of my team's gyms switch to another 
-team (so I can go put them back up). I'll start with setting 
-`"old_teams": [ "Instinct" ]`. 
+Next, I want need to know when any of my team's gyms switch to another
+team (so I can go put them back up). I'll start with setting
+`"old_teams": [ "Instinct" ]`.
 
 ```json
 {
@@ -153,17 +153,17 @@ team (so I can go put them back up). I'll start with setting
 ```
 **Note**: for brevity only part of the filters file is shown
 
-This filter will allow in any gym that switches from Instinct 
-to any other team. Additionally, we don't want to know about when it 
-switches to neutral, so we set `"ignore_neutral":"true"`. You can list 
-multiple different filters in the filters section of gyms, and PA will 
+This filter will allow in any gym that switches from Instinct
+to any other team. Additionally, we don't want to know about when it
+switches to neutral, so we set `"ignore_neutral":"true"`. You can list
+multiple different filters in the filters section of gyms, and PA will
 check them one by one.
 
 
 ### Raid Filters
 
 Raid filters work very similar to Monster Filters. You can set up alerts
-for any monster - not just the ones in the example. Here is the Raid 
+for any monster - not just the ones in the example. Here is the Raid
 section of a filters file set up for legendary birds:
 ```json
 {
@@ -183,14 +183,14 @@ section of a filters file set up for legendary birds:
 
 ## Customizing Alert Text
 
-PokeAlarm allows you to customize the Alerts that it sends out. We want 
-to customize our Raid Alerts to show a more appropriate message. To add 
+PokeAlarm allows you to customize the Alerts that it sends out. We want
+to customize our Raid Alerts to show a more appropriate message. To add
 custom text to a Discord Alarm, you should be familiar with three pages:
-1. Learn how to configure your alarms file with the [Alarms](alarms) 
+1. Learn how to configure your alarms file with the [Alarms](alarms)
 wiki page.
-2. Learn what fields Discord has to change with [Discord](discord) 
+2. Learn what fields Discord has to change with [Discord](discord)
 wiki page.
-3. Learn what DTS options are available to you with the 
+3. Learn what DTS options are available to you with the
 [Dynamic Text Substitution](dynamic-text-substitution) wiki page.
 ```json
 [
@@ -207,17 +207,17 @@ wiki page.
 **Note**: for brevity only part of the alarms file is shown
 
 Dynamic Text Substitutions substitute text dynamically (shocking!). This
-means that certain words will automatically change when surrounded by 
-`<` and `>` If a Moltres were to appear, it will show up with the 
-message set to `"The Legendary Bird Moltres has appeared! It has 9999 
-CP!"`. 
+means that certain words will automatically change when surrounded by
+`<` and `>` If a Moltres were to appear, it will show up with the
+message set to `"The Legendary Bird Moltres has appeared! It has 9999
+CP!"`.
 
-**Note:** If PA doesn't have that information, it will show either '?', 
-'unkn', or 'unknown' instead. If you get these in your alert, you will 
+**Note:** If PA doesn't have that information, it will show either '?',
+'unkn', or 'unknown' instead. If you get these in your alert, you will
 need to tweak your scanners to send the correct information.
 
-You can customize any notification by adding the proper alert settings 
-to your alarms file. If we wanted to customize pokemon alerts, we use 
+You can customize any notification by adding the proper alert settings
+to your alarms file. If we wanted to customize pokemon alerts, we use
 the following:
 ```json
 [
@@ -244,15 +244,15 @@ for a full list.
 ## Advanced: Managers
 
 Now that we've customized our message, we have a little problem. If we
-add on additional filters (say for Datrini), they will have use the 
+add on additional filters (say for Dratini), they will have use the
 message `"The starter <mon_name> jumped out of the bushes!"` But Dratini
 isn't a starter pokemon! Let's add a second manager that allow us to
 customize even more.
 
-You can find out more about Manager's and their settings on the 
+You can find out more about Manager's and their settings on the
 [Managers](managers) wiki page.
 
-First, lets make two different filter files. We will call the following 
+First, lets make two different filter files. We will call the following
 filter file `starters_filter.json`:
 ```json
 {
@@ -261,11 +261,11 @@ filter file `starters_filter.json`:
           "defaults": {
           },
           "filters": {
-              "best_monsters": { 
+              "best_monsters": {
                 "monsters": ["Charmander", "Charmeleon", "Charizard"]
               },
-              "okay_monsters": { 
-                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+              "okay_monsters": {
+                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
                 "min_iv": 90
               }
           }
@@ -274,7 +274,7 @@ filter file `starters_filter.json`:
 ```
 **Note**: for brevity only part of the filters file is shown
 
-Next, we can make a second filter file for Dratini. We will call this 
+Next, we can make a second filter file for Dratini. We will call this
 one `dratini_filters.json`:
 ```json
 {
@@ -292,8 +292,8 @@ one `dratini_filters.json`:
 ```
 **Note**: for brevity only part of the filters file is shown
 
-We want the alerts from `starter_filters.json` to be different than the 
-ones from `dragon_filters.json`. So we need two different alarms files. 
+We want the alerts from `starter_filters.json` to be different than the
+ones from `dragon_filters.json`. So we need two different alarms files.
 Here is what our `starter_alarms.json` file looks like:
 ```json
 [
@@ -309,7 +309,7 @@ Here is what our `starter_alarms.json` file looks like:
 ]
 ```
 
-As you can see, it is the same one as before. Here is what the 
+As you can see, it is the same one as before. Here is what the
 `dratini_alarms.json` file looks like:
 
 ```json
@@ -326,41 +326,41 @@ As you can see, it is the same one as before. Here is what the
 ]
 ```
 
-Now we have two different filters and two different alarm files. 
-Now we just need to set up the manager and link the filter to the alarm 
+Now we have two different filters and two different alarm files.
+Now we just need to set up the manager and link the filter to the alarm
 we want to use. When we start PokeAlarm, we can use the following:
 ```
 python start_pokealarm.py -m 2 -f starter_filters.json -a starter_alarms.json -f dratini_filters.json -a dragon_filters.json
 ```
 
-The `-m` flag tells PA that we want 2 managers. The first manager uses 
-the first file specified by `-f` and the first file specified by `-a`. 
-The second manager uses the second filter and second alarm file. 
- 
-Managers run in  separate processes, so they run concurrently and 
-scale well with the number of cores on your machine. However running 
-too many managers canbe inefficient and waste your computers resources. 
+The `-m` flag tells PA that we want 2 managers. The first manager uses
+the first file specified by `-f` and the first file specified by `-a`.
+The second manager uses the second filter and second alarm file.
+
+Managers run in  separate processes, so they run concurrently and
+scale well with the number of cores on your machine. However running
+too many managers can be inefficient and waste your computers resources.
 
 > With great power comes great responsibility.
 >
 > \- Uncle Ben  (about Managers, probably)
 
-Managers are a great tool that allow you to mix and match almost every 
-setting to any filter or alarm settings. For full details on the power 
+Managers are a great tool that allow you to mix and match almost every
+setting to any filter or alarm settings. For full details on the power
 of Managers, don't forget to check out [Managers](managers) wiki page.
 
 ## Advanced: Missing Info
 
-Sometimes, Event's are missing information needed to correctly filter 
+Sometimes, Event's are missing information needed to correctly filter
 them. In these instances, you can use the `"is_missing_info"` parameter
-to require a filter to reject or allow Events with missing information. 
-You can read more about the feature on the 
+to require a filter to reject or allow Events with missing information.
+You can read more about the feature on the
 [Filters](filters-overview#missing-info) wiki page.
 
 I really only want monsters like Bulbasaur and Squirtle to trigger
-notifications if they have the right ivs that I am looking for. If my 
+notifications if they have the right ivs that I am looking for. If my
 scanner goofs up and doesn't get the ivs, I don't want to be bothered.
-Setting `"is_missing_info": false` tells that filter to reject if 
+Setting `"is_missing_info": false` tells that filter to reject if
 any necessary information is missing.
 
 ```json
@@ -370,11 +370,11 @@ any necessary information is missing.
           "defaults": {
           },
           "filters": {
-              "best_monsters": { 
+              "best_monsters": {
                 "monsters": ["Charmander", "Charmeleon", "Charizard"]
               },
-              "okay_monsters": { 
-                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+              "okay_monsters": {
+                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
                 "min_iv": 90, "is_missing_info": false
               }
           }
@@ -384,8 +384,8 @@ any necessary information is missing.
 
 ## Advanced: Custom DTS
 
-Custom DTS is a feature that let's you define filter-specific DTS that 
-ONLY work when that filter passes. You can read more about it on the 
+Custom DTS is a feature that let's you define filter-specific DTS that
+ONLY work when that filter passes. You can read more about it on the
 [Filters](filters-overview#custom-dts) wiki page.
 
 I can use it to change certain text depending on which filters pass.
@@ -396,12 +396,12 @@ I can use it to change certain text depending on which filters pass.
           "defaults": {
           },
           "filters": {
-              "best_monsters": { 
+              "best_monsters": {
                 "monsters": ["Charmander", "Charmeleon", "Charizard"],
                 "custom_dts": { "is_fav": "IS"}
               },
-              "okay_monsters": { 
-                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+              "okay_monsters": {
+                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
                 "min_iv": 90, "is_missing_info": false,
                 "custom_dts": { "is_fav": "IS NOT"}
               }
@@ -411,7 +411,7 @@ I can use it to change certain text depending on which filters pass.
 ```
 
 If I used the following phrase in an `alarms.json`:
-`"<mon_name> <is_fav> my FAVORITE!"` 
+`"<mon_name> <is_fav> my FAVORITE!"`
 could look like this if it passed the first filter:
 `Charmander IS my FAVORITE!`
 or like this if it passed the second filter:
@@ -421,7 +421,7 @@ This feature, could be used for a variety of things like tagging special
 roles or even changing channels based on the filter selected.
 
 For example, say I changed my mind and DO want notifications from the
-other starters, but I want them to go into a different channel. First, 
+other starters, but I want them to go into a different channel. First,
 I would modify my `filters.json` to add in a DTS:
 
 ```json
@@ -431,17 +431,17 @@ I would modify my `filters.json` to add in a DTS:
           "defaults": {
           },
           "filters": {
-              "best_monsters": { 
+              "best_monsters": {
                 "monsters": ["Charmander", "Charmeleon", "Charizard"],
                 "custom_dts": { "channel_api_key": "11111"}
               },
-              "okay_monsters": { 
-                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+              "okay_monsters": {
+                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
                 "min_iv": 90, "is_missing_info": false,
                 "custom_dts": { "channel_api_key": "11111"}
               },
-              "okay_monsters_no_iv": { 
-                "monsters": [ "Bulbasaur", 2, 3, 7, 8 ,9],
+              "okay_monsters_no_iv": {
+                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
                 "min_iv": 90, "is_missing_info": true,
                 "custom_dts": { "channel_api_key": "22222"}
               }
@@ -464,4 +464,4 @@ Next, I can change my `alarms.json`:
 Now, if it passes "best_monsters" or "okay_monsters" it'll send to the
 channel at `https://discordapp.com/api/webhooks/11111`. If it passes
 "okay_monsters_no_iv" then it will be sent to the channel at
-`https://discordapp.com/api/webhooks/22222`. 
+`https://discordapp.com/api/webhooks/22222`.
