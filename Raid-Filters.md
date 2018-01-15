@@ -28,19 +28,21 @@ The `"raids"` section has three distinct settings.
 
 Raid Filters can use the following parameters to filter Raid Events:
 
-| Parameter   | Description                                  | Example |
-| ----------- |--------------------------------------------- |---------|
-| quick_moves | Accepted quick moves, by id or name.         | `[ "Vine Whip", "Tackle"]` |
-| charge_moves | Accepted charge moves, by id or name.       | `[ "Sludge Bomb", "Seed Bomb"]` |
-| monsters    | Array of allowed monsters, by id or name.    | `[ "Raikou", "244", 245 ]`|
-| min_raid_lvl | Minimum level of the egg.                | `0`     |
-| max_raid_lvl | Maximum level of the egg.                | `5`    |
+| Parameter     | Description                                   | Example  |
+| ------------- |---------------------------------------------- |--------- |
+| monsters      | Array of allowed monsters, by id or name.     | `[ "Raikou", "244", 245 ]`|
+| min_dist      | Min distance of event from set location in miles or meters (depending on settings). | `0.0` *|
+| max_dist      | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` *|
+| min_raid_lvl  | Minimum level of the raid.                    | `0`      |
+| max_raid_lvl  | Maximum level of the raid.                    | `5`      |
+| min_cp        | Minimum CP of the monster.                    | `0`      |
+| max_cp        | Maximum CP of the monster.                    | `100000` |
+| quick_moves   | Accepted quick moves, by id or name.          | `[ "Vine Whip", "Tackle"]` |
+| charge_moves  | Accepted charge moves, by id or name.         | `[ "Sludge Bomb", "Seed Bomb"]` |
 | current_teams | List of allowed current teams, by id or name. | `[ "Instinct", "Mystic" ]` |
-| min_dist    | Min distance of event from set location in miles or meters (depending on settings). | `0.0` *|
-| max_dist    | Max distance of event from set location in miles or meters (depending on settings). | `1000.0` *|
 | gym_name_contains | List of regex's required to be in the gym name.  | `[ "Sponsored" , "West\\sOak"]` |
-| geofences   | See [filters](Filters-Overview#geofence) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
-| custom_dts  | See [filters](Filters-Overview#custom-dts) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
+| geofences     | See [filters](Filters-Overview#geofence) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
+| custom_dts    | See [filters](Filters-Overview#custom-dts) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
 | is_missing_info | See [filters](Filters-Overview#missing-info) page on 'Missing Info' | `true` or `false` |
 
 \* Floats can use `"inf"` to represent infinity
