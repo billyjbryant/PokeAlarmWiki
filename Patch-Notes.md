@@ -10,15 +10,15 @@
 
 ## Patch 3.5
 
-This patch contains several breaking changes - make sure to read 
+This patch contains several breaking changes - make sure to read
 carefully, back up your current configuration, and have some free time
 before attempting to upgrade.
 ### Filters
 
 **Breaking Changes** - Filters have been completely reworked, with the
-design focused on reducing managers and optimizing system resources. 
-Several filter parameter's have changed or been updated. For full 
-instructions on the new system, please see the new 
+design focused on reducing managers and optimizing system resources.
+Several filter parameter's have changed or been updated. For full
+instructions on the new system, please see the new
 [Filters](Filters-Overview.md) page in the wiki.
 
 Some highlights include:
@@ -28,35 +28,32 @@ Some highlights include:
 
 * Added `concurrency` setting - Determines the maximum number of
 concurrent connections PA will accept. Lowering this may help lower-end
-systems improve the response time for their machines. 
+systems improve the response time for their machines.
 
 ### Alarms
 
 * **All**
     * Updated default image urls for `icon_url` and `avatar_url`. These
-    default urls have built in cache busting 
-    
-* **Discord** 
+    default urls have built in cache busting
+
+* **Discord**
     * `webhook_url` field is now DTS compatible
 
-* **Twilio** 
+* **Twilio**
     * Now supports using an array of numbers for the `to` field in Alert
      configurations.
 
 ### Dynamic Text Substitutions
 
-
 * **Pokemon**
-    * `tiny_rat` - Updated to use weight instead of size.
-    * `big_karp` - Updated to use weight instead of size.
     * `enc_id` changed to `encounter_id`
+    * `level` changed to `mon_lvl`
     * `pkmn` changed to `mon_name`
     * `pkmn_id` changed to `mon_id`
     * `pkmn_id_3` changed to `mon_id_3`
-    * `level` changed to `mon_lvl`
-    * `enc_id` changed to `encounter_id`
     * `form_id_3_or_empty` replaced with `form_id_3`
-
+    * `tiny_rat` - Updated to use weight instead of size.
+    * `big_karp` - Updated to use weight instead of size.
 
 * **Pokestops**
     * `id` changed to `stop_id`
@@ -64,29 +61,31 @@ systems improve the response time for their machines.
 * **Raids**
     * `team_leader` - Reports the name of the team leader of the team in
      control of the gym.
+    * `pkmn` changed to `mon_name`
     * `raid_level` changed to `raid_lvl`
-    * `raid_end` changed to `raid_time_left`
+    * `time_left` changed to `raid_time_left`
+    * `24h_time` changed to `24h_raid_end`
     * `gym_image_url` changed to `gym_image`
 
 * **Eggs**
     * `raid_level` changed to `egg_lvl`
-    * `raid_begin` changed to `hatch_time_left`
-    * `raid_end` changed to `raid_time_left`
+    * `begin_time_left` changed to `hatch_time_left`
+    * `time_left` changed to `raid_time_left`
+    * `begin_12h_time` changed to `12h_hatch_time`
+    * `begin_24h_time` changed to `24h_hatch_time`
     * `gym_image_url` changed to `gym_image`
 
 * **Gyms**
-    * `slots_available` - displays the number of open guard slots 
-    available in a gym
-    * `guard_count` - displays the number of guards assigned to a gym
     * `gym_image_url` changed to `gym_image`
-    
+    * `slots_available` - displays the number of open guard slots
+    available in a gym
+    * `guard_count` - displays the number of guards assigned to a gym    
 
 ### Misc
 
 * Added Gen3 Move information
 * Updated Kyogre and Groudon stats
 * Added Portuguese language translations - `pt`
-
 
 ---
 
