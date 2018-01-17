@@ -63,6 +63,7 @@ of number of fields or alarms used.
 | `<street_num>`   | Street number of the alert location               |
 | `<street>`       | Street name of the alert location                 |
 | `<address>`      | Address of the alert location, includes both street number and street name, in that order only |
+| `<address_eu>`   | Address of the alert location, in european format (street name and street number) |
 | `<postal>`       | Postal code of the alert location                 |
 | `<neighborhood>` | Neighborhood code of the alert location           |
 | `<sublocality>`  | Sublocality code of the alert location            |
