@@ -54,6 +54,7 @@ Monster Filters can use the following parameters to filter Events:
 | min_weight   | Minimum weight of the monster.               | `0.0` * |
 | max_weight   | Maximum weight of the monster.               | `250.0` * |
 | sizes        | Array of acceptable sizes. Options: `"tiny", "small", "normal", "large", "big"` | `[ "tiny", "big" ]` |
+| weather      | Accepted weathers, by id or name.            | `[ "Clear", 2 ]` |
 | geofences    | See [filters](Filters-Overview#geofence) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
 | custom_dts   | See [filters](Filters-Overview#custom-dts) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
 | is_missing_info | See [filters](Filters-Overview#missing-info) page on 'Missing Info' | `true` or `false` |

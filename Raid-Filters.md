@@ -41,6 +41,7 @@ Raid Filters can use the following parameters to filter Raid Events:
 | charge_moves  | Accepted charge moves, by id or name.         | `[ "Sludge Bomb", "Seed Bomb"]` |
 | current_teams | List of allowed current teams, by id or name. | `[ "Instinct", "Mystic" ]` |
 | gym_name_contains | List of regex's required to be in the gym name.  | `[ "Sponsored" , "West\\sOak"]` |
+| weather       | Accepted weathers, by id or name.             | `[ "Clear", 2 ]` |
 | geofences     | See [filters](Filters-Overview#geofence) page on 'Geofences'    | `[ "geofence1", "geofence2" ]` |
 | custom_dts    | See [filters](Filters-Overview#custom-dts) page on 'Custom DTS'   | `{ "dts1" : "substitution" }` |
 | is_missing_info | See [filters](Filters-Overview#missing-info) page on 'Missing Info' | `true` or `false` |
