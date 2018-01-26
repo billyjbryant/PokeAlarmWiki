@@ -13,15 +13,17 @@
 This patch contains several breaking changes - make sure to read
 carefully, back up your current configuration, and have some free time
 before attempting to upgrade.
+
 ### Filters
 
 **Breaking Changes** - Filters have been completely reworked, with the
 design focused on reducing managers and optimizing system resources.
 Several filter parameter's have changed or been updated. For full
 instructions on the new system, please see the new
-[Filters](Filters-Overview.md) page in the wiki.
+[Filters](Filters-Overview) page in the wiki.
 
 Some highlights include:
+
     * Custom DTS - new feature to define filter specific DTS
 
 ### Server Settings

@@ -1,4 +1,5 @@
 ## Overview
+
 This guide contains an overview to the different parts of configuring
 and customizing PokeAlarm to fit your needs.
 
@@ -15,6 +16,7 @@ and customizing PokeAlarm to fit your needs.
 * [Advanced: Custom DTS](#advanced-custom-dts)
 
 ## Prerequisites
+
 This guide assumes the following:
 
 1. You have correctly [installed PokeAlarm](installation), including
@@ -39,7 +41,7 @@ server to do the following:
 
 ## Setting up an Alarm
 
-In PokeAlarm, an 'Alarm' is a block in the Alarms.json section that
+In PokeAlarm, an 'Alarm' is a block in the `alarms.json` section that
 represents how you want to receive an alert. For our example, we will
 use Discord, but the steps are similar between types of Alarms.
 
@@ -51,14 +53,15 @@ wiki page.
 
 Once we have our webhook url set up, we can edit the default discord
 alarm in the `alarms.json` file:  
+
 ```json
-[
-  {
-    "active": "True",
-    "type": "discord",
-    "webhook_url": "https://discordapp.com/api/webhooks/1234567890"
+{
+  "discord_alarm":{
+    "active":true,
+    "type":"discord",
+    "webhook_url":"https://discordapp.com/api/webhooks/1234567890"
   }
-]
+}
 ```
 **Note**: for brevity only the discord section is shown
 
@@ -80,19 +83,21 @@ Event passes a Filter, it will be passed onto the Alarms to trigger a
 notification. **Note:** Only one filter can be trigger at a time.
 
 ### Monster Filters
+
 First, we want to decide which monsters we want notifications on. I want
 to create an army of Charizards, so I'm going to need a lot of candy!
 I'm going to create a new filter named `best_monsters` and set it
 to accept only the Charmander family:
+
 ```json
 {
   "monsters":{
-          "enabled": true,
-          "defaults": {
+          "enabled":true,
+          "defaults":{
           },
-          "filters": {
-              "best_monsters": {
-                "monsters": ["Charmander", "Charmeleon", "Charizard"]
+          "filters":{
+              "best_monsters":{
+                "monsters":["Charmander", "Charmeleon", "Charizard"]
               }
           }
   }
@@ -108,15 +113,15 @@ Charmander!). Let's add another filter, but for IV's above 90%.
 ```json
 {
   "monsters":{
-          "enabled": true,
-          "defaults": {
+          "enabled":true,
+          "defaults":{
           },
-          "filters": {
-              "best_monsters": {
-                "monsters": ["Charmander", "Charmeleon", "Charizard"]
+          "filters":{
+              "best_monsters":{
+                "monsters":["Charmander","Charmeleon","Charizard"]
               },
-              "okay_monsters": {
-                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
+              "okay_monsters":{
+                "monsters":["Bulbasaur", 2, 3, 7, 8, 9],
                 "min_iv": 90
               }
           }
@@ -134,18 +139,18 @@ unintended things from happening!).
 
 Next, I want need to know when any of my team's gyms switch to another
 team (so I can go put them back up). I'll start with setting
-`"old_teams": [ "Instinct" ]`.
+`"old_teams":["Instinct"]`.
 
 ```json
 {
   "gyms":{
-      "enabled": true,
-      "ignore_neutral": true,
-      "defaults": {
+      "enabled":true,
+      "ignore_neutral":true,
+      "defaults":{
       },
-      "filters": {
-          "clearly_the_best_team" : {
-              "old_teams": [ "Instinct" ]
+      "filters":{
+          "clearly_the_best_team":{
+              "old_teams":["Instinct"]
           }
       }
   },
@@ -165,15 +170,16 @@ check them one by one.
 Raid filters work very similar to Monster Filters. You can set up alerts
 for any monster - not just the ones in the example. Here is the Raid
 section of a filters file set up for legendary birds:
+
 ```json
 {
   "raids":{
-      "enabled": true,
-      "defaults": {
+      "enabled":true,
+      "defaults":{
       },
-      "filters": {
-          "legendary-birds" : {
-              "monsters": [ 144, 145, 146, 249, 250 ]
+      "filters":{
+          "legendary-birds":{
+              "monsters":[144, 145, 146, 249, 250]
           }
       }
   }
@@ -192,17 +198,18 @@ wiki page.
 wiki page.
 3. Learn what DTS options are available to you with the
 [Dynamic Text Substitution](dynamic-text-substitution) wiki page.
+
 ```json
-[
-  {
-    "active": "True",
-    "type": "discord",
-    "webhook_url": "https://discordapp.com/api/webhooks/1234567890",
+{
+  "discord_alarm":{
+    "active":true,
+    "type":"discord",
+    "webhook_url":"https://discordapp.com/api/webhooks/1234567890",
     "raids":{
-      "title": "The Legendary Bird <mon_name> has appeared! It has <cp> CP!"
+      "title":"The Legendary Bird <mon_name> has appeared! It has <cp> CP!"
     }
   }
-]
+}
 ```
 **Note**: for brevity only part of the alarms file is shown
 
@@ -219,21 +226,22 @@ need to tweak your scanners to send the correct information.
 You can customize any notification by adding the proper alert settings
 to your alarms file. If we wanted to customize pokemon alerts, we use
 the following:
+
 ```json
-[
-  {
-    "active": "True",
-    "type": "discord",
-    "webhook_url": "https://discordapp.com/api/webhooks/1234567890",
-    "pokemon":{
-      "title": "The starter <mon_name> jumped out of the bushes!",
-      "body": "It has an IV of <iv>%!"
+{
+  "discord_alarm":{
+    "active":true,
+    "type":"discord",
+    "webhook_url":"https://discordapp.com/api/webhooks/1234567890",
+    "monsters":{
+      "title":"The starter <mon_name> jumped out of the bushes!",
+      "body":"It has an IV of <iv>%!"
     },
     "raids":{
-      "title": "The Legendary Bird <mon_name> has appeared! It has <cp> CP!"
+      "title":"The Legendary Bird <mon_name> has appeared! It has <cp> CP!"
     }
   }
-]
+}
 ```
 **Note**: for brevity only part of the alarms file is shown
 
@@ -254,18 +262,19 @@ You can find out more about Manager's and their settings on the
 
 First, lets make two different filter files. We will call the following
 filter file `starters_filter.json`:
+
 ```json
 {
   "monsters":{
-          "enabled": true,
-          "defaults": {
+          "enabled":true,
+          "defaults":{
           },
-          "filters": {
-              "best_monsters": {
-                "monsters": ["Charmander", "Charmeleon", "Charizard"]
+          "filters":{
+              "best_monsters":{
+                "monsters":["Charmander","Charmeleon","Charizard"]
               },
-              "okay_monsters": {
-                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
+              "okay_monsters":{
+                "monsters":["Bulbasaur", 2, 3, 7, 8, 9],
                 "min_iv": 90
               }
           }
@@ -276,15 +285,16 @@ filter file `starters_filter.json`:
 
 Next, we can make a second filter file for Dratini. We will call this
 one `dratini_filters.json`:
+
 ```json
 {
   "monsters":{
-          "enabled": true,
-          "defaults": {
+          "enabled":true,
+          "defaults":{
           },
-          "filters": {
-              "filter-name": {
-                  "monsters": [ 147, 148, 149 ]
+          "filters":{
+              "filter-name":{
+                  "monsters":[147, 148, 149]
               }
           }
   }
@@ -295,35 +305,36 @@ one `dratini_filters.json`:
 We want the alerts from `starter_filters.json` to be different than the
 ones from `dragon_filters.json`. So we need two different alarms files.
 Here is what our `starter_alarms.json` file looks like:
+
 ```json
-[
-  {
-    "active": "True",
-    "type": "discord",
-    "webhook_url": "https://discordapp.com/api/webhooks/1234567890",
-    "pokemon":{
-      "title": "The starter <mon_name> jumped out of the bushes!",
-      "body": "It has an IV of <iv>%!"
+{
+  "discord_alarm":{
+    "active":true,
+    "type":"discord",
+    "webhook_url":"https://discordapp.com/api/webhooks/1234567890",
+    "monsters":{
+      "title":"The starter <mon_name> jumped out of the bushes!",
+      "body":"It has an IV of <iv>%!"
     }
   }
-]
+}
 ```
 
 As you can see, it is the same one as before. Here is what the
 `dratini_alarms.json` file looks like:
 
 ```json
-[
-  {
-    "active": "True",
-    "type": "discord",
-    "webhook_url": "https://discordapp.com/api/webhooks/1234567890",
-    "pokemon":{
-      "title": "The high IV dragon <mon_name> appears with a roar!",
-      "body": "It has an IV of <iv>%!"
+{
+  "discord_alarm":{
+    "active":true,
+    "type":"discord",
+    "webhook_url":"https://discordapp.com/api/webhooks/1234567890",
+    "monsters":{
+      "title":"The high IV dragon <mon_name> appears with a roar!",
+      "body":"It has an IV of <iv>%!"
     }
   }
-]
+}
 ```
 
 Now we have two different filters and two different alarm files.
@@ -366,16 +377,16 @@ any necessary information is missing.
 ```json
 {
   "monsters":{
-          "enabled": true,
-          "defaults": {
+          "enabled":true,
+          "defaults":{
           },
-          "filters": {
-              "best_monsters": {
-                "monsters": ["Charmander", "Charmeleon", "Charizard"]
+          "filters":{
+              "best_monsters":{
+                "monsters":["Charmander","Charmeleon","Charizard"]
               },
-              "okay_monsters": {
-                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
-                "min_iv": 90, "is_missing_info": false
+              "okay_monsters":{
+                "monsters":["Bulbasaur", 2, 3, 7, 8, 9],
+                "min_iv": 90, "is_missing_info":false
               }
           }
   }
@@ -389,21 +400,22 @@ ONLY work when that filter passes. You can read more about it on the
 [Filters](filters-overview#custom-dts) wiki page.
 
 I can use it to change certain text depending on which filters pass.
+
 ```json
 {
   "monsters":{
-          "enabled": true,
-          "defaults": {
+          "enabled":true,
+          "defaults":{
           },
-          "filters": {
-              "best_monsters": {
-                "monsters": ["Charmander", "Charmeleon", "Charizard"],
-                "custom_dts": { "is_fav": "IS"}
+          "filters":{
+              "best_monsters":{
+                "monsters":["Charmander","Charmeleon","Charizard"],
+                "custom_dts":{"is_fav": "IS"}
               },
-              "okay_monsters": {
-                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
-                "min_iv": 90, "is_missing_info": false,
-                "custom_dts": { "is_fav": "IS NOT"}
+              "okay_monsters":{
+                "monsters":["Bulbasaur", 2, 3, 7, 8, 9],
+                "min_iv": 90, "is_missing_info":false,
+                "custom_dts":{"is_fav": "IS NOT"}
               }
           }
   }
@@ -411,10 +423,15 @@ I can use it to change certain text depending on which filters pass.
 ```
 
 If I used the following phrase in an `alarms.json`:
+
 `"<mon_name> <is_fav> my FAVORITE!"`
+
 could look like this if it passed the first filter:
+
 `Charmander IS my FAVORITE!`
+
 or like this if it passed the second filter:
+
 `Squirtle IS NOT my FAVORITE!`
 
 This feature, could be used for a variety of things like tagging special
@@ -427,23 +444,23 @@ I would modify my `filters.json` to add in a DTS:
 ```json
 {
   "monsters":{
-          "enabled": true,
-          "defaults": {
+          "enabled":true,
+          "defaults":{
           },
-          "filters": {
-              "best_monsters": {
-                "monsters": ["Charmander", "Charmeleon", "Charizard"],
-                "custom_dts": { "channel_api_key": "11111"}
+          "filters":{
+              "best_monsters":{
+                "monsters":["Charmander","Charmeleon","Charizard"],
+                "custom_dts":{"channel_api_key": "11111"}
               },
-              "okay_monsters": {
-                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
-                "min_iv": 90, "is_missing_info": false,
-                "custom_dts": { "channel_api_key": "11111"}
+              "okay_monsters":{
+                "monsters":["Bulbasaur", 2, 3, 7, 8, 9],
+                "min_iv": 90, "is_missing_info":false,
+                "custom_dts":{"channel_api_key":"11111"}
               },
-              "okay_monsters_no_iv": {
-                "monsters": ["Bulbasaur", 2, 3, 7, 8, 9],
-                "min_iv": 90, "is_missing_info": true,
-                "custom_dts": { "channel_api_key": "22222"}
+              "okay_monsters_no_iv":{
+                "monsters":["Bulbasaur", 2, 3, 7, 8, 9],
+                "min_iv": 90, "is_missing_info":true,
+                "custom_dts":{"channel_api_key":"22222"}
               }
           }
   }
@@ -451,14 +468,15 @@ I would modify my `filters.json` to add in a DTS:
 ```
 
 Next, I can change my `alarms.json`:
+
 ```json
-[
-  {
-    "active": "True",
-    "type": "discord",
-    "webhook_url": "https://discordapp.com/api/webhooks/<channel_api_key>"
+{
+  "discord_alarm":{
+    "active":true,
+    "type":"discord",
+    "webhook_url":"https://discordapp.com/api/webhooks/<channel_api_key>"
   }
-]
+}
 ```
 
 Now, if it passes "best_monsters" or "okay_monsters" it'll send to the

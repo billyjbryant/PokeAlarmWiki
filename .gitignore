@@ -1,1 +1,5 @@
+# other files
 .idea/*
+
+# OS files
+.DS_Store

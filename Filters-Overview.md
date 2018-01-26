@@ -66,7 +66,6 @@ The basic structure of `filters.json` is as follows:
 }
 ```
 
-
 ## Filter Parameters
 
 Each section contains a `"filters"` subsection as a json object with
@@ -189,7 +188,6 @@ When `"is_missing_info"` is NOT included in the filter, it will simply
 skip any checks on missing information. If you have `"min_iv":90.0` set
 but no `"is_missing_info`", PA will still pass monsters
 where `iv` is unknown.
-
 
 ### Geofence
 

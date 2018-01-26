@@ -11,7 +11,6 @@ This page assumes:
 2. You read and understood the [DTS](Dynamic-Text-Substitution) page.
 3. You are using the latest version of PokeAlarm.
 
-
 ## Available DTS
 
 | DTS              | Description                                               |
@@ -39,6 +38,11 @@ This page assumes:
 | weather          | Weather name of the monster.                              |
 | weather_or_empty | Weather name of the monster, or empty string if unknown.  |
 | weather_emoji    | Weather emoji of the monster, or empty string if unknown. |
+| boosted_weather_id | Return weather ID if monster is boosted.                |
+| boosted_weather  | Return weather name if monster is boosted.                |
+| boosted_weather_or_empty | Return weather name if monster is boosted, or empty string if unknown. |
+| boosted_weather_emoji | Return weather emoji if monster is boosted, or empty string if unknown. |
+| boosted_or_empty | Return `boosted` if monster is boosted, or empty string if not. |
 | mon_lvl          | Level of the monster.                                     |
 | cp               | Combat Points of the monster.                             |
 | iv               | Individual Values percentage of the monster.              |              
@@ -47,6 +51,14 @@ This page assumes:
 | atk              | Attack IV of the monster.                                 |
 | def              | Defense IV of the monster.                                |
 | sta              | Stamina IV of the monster.                                |
+| type1            | Name of the monster's primary type.                       |
+| type1_or_empty   | Name of the monster's primary type, or empty string if unknown. |
+| type1_emoji      | Emoji for the monster's primary type, or empty string if unknown. |
+| type2            | Name of the monster's secondary type.                     |
+| type2_or_empty   | Name of the monster's secondary type, or empty string if unknown. |
+| type2_emoji      | Emoji for the monster's secondary type, or empty string if unknown. |
+| types            | Monster's type formatted as "type1/type2".                |
+| types_emoji      | Type emojis for the monster as "type1+type2", or empty string if unknown. |
 | form             | Form name of the monster.                                 |
 | form_or_empty    | Form name of the monster, or empty string if unknown.     |
 | form_id          | Form ID for the monster.                                  |

@@ -1,14 +1,18 @@
 ## Overview
+
 * [Pokemon](#pokemon)
 * [Pokestops](#pokestops)
 * [Gyms](#gyms)
   * [Gym-details Example](#gym-details-example)
 * [Egg example](#egg-example)
-* [Raid Example](#raid-example)
+* [Raid example](#raid-example)
 
-## ***Pokemon***
+## Pokemon
+
 Pokemon standard now includes moveset and IVs as of commit [oc1b4](https://github.com/RocketMap/PokeAlarm/commit/0c1b4cce80e0ceb3cc6dbb2d802204af4dd3ce60).
+
 #### Example:
+
 ```json
 {
     "type": "pokemon",
@@ -19,13 +23,13 @@ Pokemon standard now includes moveset and IVs as of commit [oc1b4](https://githu
         "pokemon_level": 30,
         "player_level": 31,
 	"latitude": 37.7876146,
-	"longitude": -122.390624, 
+	"longitude": -122.390624,
         "disappear_time": 1506897031,
         "last_modified_time": 1475033386661,
         "time_until_hidden_ms": 5000,
-	"seconds_until_despawn": 1754, 
-	"spawn_start": 2153, 
-	"spawn_end": 3264, 
+	"seconds_until_despawn": 1754,
+	"spawn_start": 2153,
+	"spawn_end": 3264,
 	"verified": false,
 	"cp_multiplier": 0.7317000031471252,
 	"form": 15,
@@ -42,17 +46,18 @@ Pokemon standard now includes moveset and IVs as of commit [oc1b4](https://githu
 }
 ```
 
-
 ## Pokestops
+
 #### Example:
+
 ```json
-{ 
+{
     "type": "pokestop",
     "message": {
         "pokestop_id": 0,
         "enabled": "True",
 	"latitude": 37.7876146,
-	"longitude": -122.390624, 
+	"longitude": -122.390624,
         "last_modified_time": 1572241600,
         "lure_expiration": 1572241600,
         "active_fort_modifier": 0
@@ -61,9 +66,11 @@ Pokemon standard now includes moveset and IVs as of commit [oc1b4](https://githu
 ```
 
 ## Gyms
+
 #### Example:
+
 ```json
-{ 
+{
     "type": "gyms",
     "message": {
 		"raid_active_until": 0,
@@ -77,13 +84,14 @@ Pokemon standard now includes moveset and IVs as of commit [oc1b4](https://githu
                 "occupied_since": 1506886787,
 		"enabled": "True",
 		"latitude": 37.7876146,
-		"longitude": -122.390624, 
+		"longitude": -122.390624,
 		"last_modified": 1572241600
     }
 }
 ```
 
-#### Gym-details Example:
+#### Gym-details example:
+
 ```json
 {
     "type": "gym_details",
@@ -162,10 +170,11 @@ Pokemon standard now includes moveset and IVs as of commit [oc1b4](https://githu
 
 ## Egg example
 
-Take note that the type for egg is `raid` because it is collected from the same webhook event from RocketMap as raids are.
+Take note that the type for egg is `raid` because it is collected from the same
+webhook event from RocketMap as raids are.
 
 ```json
-{ 
+{
     "type": "raid",
     "message": {
         "gym_id": "gym_id",
@@ -178,10 +187,10 @@ Take note that the type for egg is `raid` because it is collected from the same 
 }
 ```
 
-## Raid Example
+## Raid example
 
 ```json
-{ 
+{
     "type": "raid",
     "message": {
         "gym_id": "gym_id",

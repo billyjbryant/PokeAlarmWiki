@@ -1,4 +1,5 @@
 ## Overview
+
 * [Prerequisites](#prerequisites)
 * [Introduction](#introduction)
 * [Basic Config](#basic-config)
@@ -12,6 +13,7 @@
 * [How to Enable Discord Webhooks](#how-to-enable-discord-webhooks)
 
 ## Prerequisites
+
 This guide assumes
 
 1. You are familiar with [JSON formatting](https://www.w3schools.com/js/js_json_intro.asp)
@@ -23,7 +25,9 @@ Please familiarize yourself with all of the above before proceeding.
 
 ## Introduction
 
-**Discord** is a free voice and text chat app designed specifically for gaming. Available on Windows, Mac OS X, iOS and Android. It is also usable from any Chrome, Firefox or Opera browser.
+**Discord** is a free voice and text chat app designed specifically for gaming.
+Available on Windows, Mac OS X, iOS and Android. It is also usable from any
+Chrome, Firefox or Opera browser.
 
 PokeAlarm offers the following for Discord:
 
@@ -31,27 +35,28 @@ PokeAlarm offers the following for Discord:
 * High resolution icons for pokemon, gym, pokestop, egg or raid notifications
 * Personalized notifications via [Dynamic Text Substitution](Dynamic-Text-Substitution)
 
-
 ## Basic Config
 
 ### Required Parameters
+
 The parameters below are required to enable the Discord alarm service:
 
 | Parameters     | Description                             |
 |----------------|-----------------------------------------|
 | `type`         | Must be `discord`                       |
-| `active`       | `True` for alarm to be active           |
+| `active`       | `true` for alarm to be active           |
 | `webhook_url`* | Your Webhook URL for a specific channel |
 
-**Note:** *In PokeAlarm version 3.1, `webhook_url` replaced `api_key`.
+**Note:** *In PokeAlarm version 3.1, `webhook_url` replaced `api_key`.*
 
 ### Example: Basic Alarm Configuration using Required Parameters
 
-**Note:** The above below is to be inserted into the alarms section of `alarms.json`. It does not represent the entire `alarms.json` file.
+**Note:** The above below is to be inserted into the alarms section of
+`alarms.json`. It does not represent the entire `alarms.json` file.
 
 ```json
 {
-	"active":"True",
+	"active":true,
 	"type":"discord",
 	"webhook_url":"YOUR_WEBHOOK_URL"
 }
@@ -60,7 +65,10 @@ The parameters below are required to enable the Discord alarm service:
 ## Advanced Config
 
 ### Optional Parameters
-In addition to the required parameters, several optional parameters are available to personalize your notifications.  Below is an example of these optional parameters and how they are incorporated into a functional alarm layout.
+
+In addition to the required parameters, several optional parameters are
+available to personalize your notifications. Below is an example of these
+optional parameters and how they are incorporated into a functional alarm layout.
 
 These optional parameters are entered at the same level as `"type":"discord"`.
 
@@ -68,86 +76,98 @@ These optional parameters are entered at the same level as `"type":"discord"`.
 |--------------------|----------------------------------------------|
 | `startup_message`  | Confirmation post when PokeAlarm initialized |
 
-These optional parameters below are applicable to the `pokemon`, `pokestop`, `gym`, `egg`, and `raid` sections of the JSON file.
+These optional parameters below are applicable to the `monsters`, `stops`,
+`gyms`, `eggs`, and `raids` sections of the JSON file.
 
-| Parameters       | Description                                       | Default                                       |
-|------------------|---------------------------------------------------|-----------------------------------------------|
-| `webhook_url`    | URL of specific channel name.  Overrides `webhook_url` at Alarm level.  Use to post only
-| `disable_embed`  | Disables the body to make one line notifications  | `False`                                       |
-| `username`       | Username the bot should post the message as       | `<mon_name>`                                  |
-| `icon_url`       | URL path to pokemon icon                          |                                               |
-| `avatar_url`     | URL path to pokemon avatar                        |                                               |
-| `title`          | Notification text to begin the message            | `A wild <mon_name> has appeared!`             |
-| `url`            | Link to be added to notification text             | `<gmaps>`                                     |
-| `body`           | Additional text to be added to the message        | `Available until <24h_time> (<time_left>).`   |
-| `content`        | Text before the Discord embed                     |                                               |
+| Parameters       | Description                                  | Default                           |
+|------------------|----------------------------------------------|-----------------------------------|
+| `webhook_url`    | URL of specific channel name. Overrides `webhook_url` at Alarm level. Use to post only
+| `disable_embed`  | Disables the body to make one line notifications | `False`                       |
+| `username`       | Username the bot should post the message as  | `<mon_name>`                      |
+| `icon_url`       | URL path to icon                             |                                   |
+| `avatar_url`     | URL path to avatar                           |                                   |
+| `title`          | Notification text to begin the message       | `A wild <mon_name> has appeared!` |
+| `url`            | Link to be added to notification text        | `<gmaps>`                         |
+| `body`           | Additional text to be added to the message   | `Available until <24h_time> (<time_left>).` |
+| `content`        | Text before the Discord embed                |                                   |
 
-*Note: Nidorans will be `nidoranf` or `nidoranm`, Farfetch'd will be `farfetchd`, and Mr. Mime will be `mrmime`.
+*Note: Nidorans will be `nidoranf` or `nidoranm`, Farfetch'd will be
+`farfetchd`, and Mr. Mime will be `mrmime`.*
 
 ## Example: Alarm Configuration Using Optional Parameters
 
-**Note:** The code below is to be inserted into the alarms section of `alarms.json`. It does not represent the entire `alarms.json` file.
+**Note:** The code below is to be inserted into the alarms section of
+`alarms.json`. It does not represent the entire `alarms.json` file.
 
 ```json
 {
-	"active":"True",
-	"type":"discord",
-	"webhook_url":"YOUR_WEBHOOK_URL",
-	"startup_message":"False",
-	"pokemon":{
-		"webhook_url":"YOUR_WEBHOOK_URL_FOR_POKEMON_CHANNEL",
-		"username":"<mon_name>",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_<form_id_3>.png",
-		"title":"A wild <mon_name> has appeared!",
-		"url":"<gmaps>",
-		"body":"Available until <24h_time> (<time_left>)."
-	},
-	"pokestop":{
-		"webhook_url":"YOUR_WEBHOOK_URL_FOR_POKESTOP_CHANNEL",
-		"username":"Pokestop",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/ready.png",
-		"title":"Someone has placed a lure on a Pokestop!",
-		"url":"<gmaps>",
-		"body":"Lure will expire at <24h_time> (<time_left>)."
-	},
-	"gym":{
-		"webhook_url":"YOUR_WEBHOOK_URL_FOR_GYM_CHANNEL",
-		"username":"<new_team> Gym Alerts",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/<new_team_id>.png",
-		"title":"A Team <old_team> gym has fallen!",
-		"url":"<gmaps>",
-		"body":"It is now controlled by <new_team>."
-	},
-	"egg":{
-		"webhook_url":"DISCORD_WEBHOOK_URL_FOR_EGG_CHANNEL",
-		"username":"Egg",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/<egg_lvl>.png",
-		"avatar_url*":"<YOUR CUSTOM URL HERE>/<egg_lvl>.png",
-		"title":"Raid is incoming!",
-		"url":"<gmaps>",
-		"body":"A level <egg_lvl> raid will hatch at <24h_hatch_time> (<hatch_time_left>)."
-	},
-	"raid":{
-		"webhook_url":"DISCORD_WEBHOOK_URL_FOR_RAID_CHANNEL",
-		"username":"Raid",
-		"icon_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_000.png",
-		"avatar_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_000.png",
-		"title":"Level <raid_lvl> Raid is available against <mon_name>!",
-		"url":"<gmaps>",
-		"body":"The raid is available until <24h_raid_end> (<raid_time_left>)."
-	}
+  "discord_alarm":{
+    "active":true,
+    "type":"discord",
+    "webhook_url":"YOUR_WEBHOOK_URL",
+    "startup_message":false,
+    "monsters":{
+        "webhook_url":"YOUR_WEBHOOK_URL_FOR_POKEMON_CHANNEL",
+        "username":"<mon_name>",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_<form_id_3>.png",
+        "title":"A wild <mon_name> has appeared!",
+        "url":"<gmaps>",
+        "body":"Available until <24h_time> (<time_left>)."
+    },
+    "stops":{
+        "webhook_url":"YOUR_WEBHOOK_URL_FOR_POKESTOP_CHANNEL",
+        "username":"Pokestop",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/ready.png",
+        "title":"Someone has placed a lure on a Pokestop!",
+        "url":"<gmaps>",
+        "body":"Lure will expire at <24h_time> (<time_left>)."
+    },
+    "gyms":{
+        "webhook_url":"YOUR_WEBHOOK_URL_FOR_GYM_CHANNEL",
+        "username":"<new_team> Gym Alerts",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/<new_team_id>.png",
+        "title":"A Team <old_team> gym has fallen!",
+        "url":"<gmaps>",
+        "body":"It is now controlled by <new_team>."
+    },
+    "eggs":{
+        "webhook_url":"DISCORD_WEBHOOK_URL_FOR_EGG_CHANNEL",
+        "username":"Egg",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/<egg_lvl>.png",
+        "avatar_url*":"<YOUR CUSTOM URL HERE>/<egg_lvl>.png",
+        "title":"Raid is incoming!",
+        "url":"<gmaps>",
+        "body":"A level <egg_lvl> raid will hatch at <24h_hatch_time> (<hatch_time_left>)."
+    },
+    "raids":{
+        "webhook_url":"DISCORD_WEBHOOK_URL_FOR_RAID_CHANNEL",
+        "username":"Raid",
+        "icon_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_000.png",
+        "avatar_url*":"<YOUR CUSTOM URL HERE>/<mon_id_3>_000.png",
+        "title":"Level <raid_lvl> Raid is available against <mon_name>!",
+        "url":"<gmaps>",
+        "body":"The raid is available until <24h_raid_end> (<raid_time_left>)."
+    }
+  }
 }
 ```
-**Note:** *THESE LINES ARE USED TO OVERRIDE DEFAULT VALUES. IF YOU DO NOT WISH TO USE CUSTOM IMAGES, DO NOT ADD THESE LINES TO YOUR ALARMS.JSON.
+**Note:** \*THESE LINES ARE USED TO OVERRIDE DEFAULT VALUES. IF YOU DO NOT WISH
+TO USE CUSTOM IMAGES, DO NOT ADD THESE LINES TO YOUR ALARMS.JSON.
 
 ### Mini Map Configuration
+
 ![](images/minimap.png)
 
-You can enable a small Google Static Maps image after your post, showing the location of the alarmed pokemon, gym, or pokestop.  This is done by adding the `map` parameter at the Alarm level (which will apply maps for any notification), or individually to the `pokemon`, `pokestop`, `gym`, `egg`, or `raid` sections of your alarm.
+You can enable a small Google Static Maps image after your post, showing the
+location of the alarmed pokemon, gym, pokestop, egg, or raid. This is done by
+adding the `map` parameter at the Alarm level (which will apply maps for any
+notification), or individually to the `monsters`, `stops`, `gyms`, `eggs`,
+or `raids` sections of your alarm.
 
 Below is an example of enabling the mini map for pokemon.
+
 ```json
-	"pokemon":{
+	"monsters":{
 		"webhook_url":"YOUR_WEBHOOK_URL_FOR_POKEMON_CHANNEL",
 		"username":"<mon_name>",
 		"title":"A wild <mon_name> has appeared!",
@@ -163,13 +183,13 @@ Below is an example of enabling the mini map for pokemon.
 	},
 ```
 
-| Parameters     | Description                                       | Default                                       |
-|----------------|---------------------------------------------------|-----------------------------------------------|
-| `enabled`      | Turns the map on or off                           | `True`                                        |
-| `width`        | Width of the map                                  | `250` px                                      |
-| `height`       | Height of the map                                 | `150` px                                      |
-| `maptype`      | Link to be added to notification text             | `roadmap`                                     |
-| `zoom`         | Specifies the zoom of the map                     | `15`                                          |
+| Parameters     | Description                           | Default     |
+|----------------|---------------------------------------|-------------|
+| `enabled`      | Turns the map on or off               | `true`      |
+| `width`        | Width of the map                      | `250` px    |
+| `height`       | Height of the map                     | `150` px    |
+| `maptype`      | Link to be added to notification text | `roadmap`   |
+| `zoom`         | Specifies the zoom of the map         | `15`        |
 
 ### Formatting alarms text
 

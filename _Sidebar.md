@@ -5,7 +5,7 @@
 [Getting Started Guide](Getting-Started-Guide)  
 
 
-### **Settings** 
+### **Settings**
 [Server Settings](server-settings)  
 [Alarms](alarms)  
 [Geofences](geofences)  
@@ -41,6 +41,7 @@
 ### **Other**
 [Object Caching](Object-Caching)  
 [Google Maps API Keys](Google-Maps-API-Key)   
+[Docker](Docker)   
 [Remedy's v3.2 Guide](v3.2-Guide)  
 [Remedy's v3 Guide](v3-Guide)
 

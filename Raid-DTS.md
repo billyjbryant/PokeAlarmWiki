@@ -11,7 +11,6 @@ This page assumes:
 2. You read and understood the [DTS](Dynamic-Text-Substitution) page.
 3. You are using the latest version of PokeAlarm.
 
-
 ## Available DTS
 
 | DTS              | Description                                             |
@@ -21,6 +20,14 @@ This page assumes:
 | raid_time_left   | Time remaining until the raid ends.                     |
 | 12h_raid_end     | Time when the raid ends, formatted in 12h.              |
 | 24h_raid_end     | Time when the raid ends, formatted in 24h.              |
+| type1            | Name of the monster's primary type.                     |
+| type1_or_empty   | Name of the monster's primary type, or empty string if unknown. |
+| type1_emoji      | Emoji for the monster's primary type, or empty string if unknown. |
+| type2            | Name of the monster's secondary type.                   |
+| type2_or_empty   | Name of the monster's secondary type, or empty string if unknown. |
+| type2_emoji      | Emoji for the monster's secondary type, or empty string if unknown. |
+| types            | Monster's type formatted as "type1/type2".              |
+| types_emoji      | Type emojis for the monster as "type1+type2", or empty string if unknown. |
 | lat              | Latitude of the raid.                                   |
 | lng              | Longitude of the raid.                                  |
 | lat_5            | Latitude of the raid, truncated to 5 decimal places.    |
@@ -34,6 +41,11 @@ This page assumes:
 | weather          | Weather name of the raid.                               |
 | weather_or_empty | Weather name of the raid, or empty string if unknown.   |
 | weather_emoji    | Weather emoji of the raid, or empty string if unknown.  |
+| boosted_weather_id | Return weather ID if monster is boosted.              |
+| boosted_weather  | Return weather name if monster is boosted.              |
+| boosted_weather_or_empty | Return weather name if monster is boosted, or empty string if unknown. |
+| boosted_weather_emoji | Return weather emoji if monster is boosted, or empty string if unknown. |
+| boosted_or_empty | Return `boosted` if monster is boosted, or empty string if not. |
 | mon_name         | The name of the monster's species.                      |
 | mon_id           | ID of the monster's species.                            |
 | mon_id_3         | ID of the monster's species, padded to 3 digits.        |

@@ -11,7 +11,6 @@ This page assumes:
 2. You read and understood the [DTS](Dynamic-Text-Substitution) page.
 3. You are using the latest version of PokeAlarm.
 
-
 ## Available DTS
 
 | DTS          | Description                                            |
