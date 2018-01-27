@@ -67,7 +67,7 @@ The Alert sections of alarms has been updated to match the event names:
 * `pokestop` -> `stops`
 * `gym` -> `gyms`
 * `egg` -> `eggs`
-* `gym` -> `gyms`
+* `raid` -> `raids`
 
 
 #### Alerts Converter
@@ -88,7 +88,7 @@ issues and address Telegram API changes.
 
 * **Content Changes** - Telegram now uses markdown instead of html to reduce 
 conflicts caused by using invalid DTS fields.
-* `title` and `body have been merged into `message` to better represent how
+* `title` and `body` have been merged into `message` to better represent how
 the Telegram API actually treats messages.  The old behavior can be mimiced
 by using the following example content: `*TITLE GOES HERE*\n BODY GOES HERE`
 * **Field Changes** - The following fields have been changed:
@@ -113,6 +113,21 @@ by using the following example content: `*TITLE GOES HERE*\n BODY GOES HERE`
 the geofences are listed in the geofence file.
 * `gym_name_contains` is now case-insensitive.
 
+#### Time Based Filtering
+
+Filters now support filtering based on event timing.  This allows for
+greater control over event alerts than what was previously supported via the
+`timelimit` configuration option. 
+
+* **New Filters**
+    * `min_time_left` - The minimum amount of time in seconds until the event
+	* `max_time_left` - The maximum amount of time in seconds until the event
+* **Filter Events**
+    * **Monsters** - Filters based on time until monster despawns
+	* **Stops** - Filters based on time until the lure ends
+	* **Raids** - Filters based on time until the raid ends
+	* **Eggs** - Filters based on time until the egg hatches
+
 
 ### Locale
 
@@ -121,7 +136,7 @@ the geofences are listed in the geofence file.
 
 ### Dynamic Text Substitutions
 
-* **Pokemon**
+* **Monsters & Raids**
     * `size` - Changed to support locales
     * `weather` - Outputs the current weather conditions in the alert
 	* `weather_id` - Outputs the current weather condition id
@@ -131,23 +146,27 @@ the geofences are listed in the geofence file.
 	* `boosted_weather_id` - Outputs the boosted weather condition id
 	* `boosted_weather_or_empty` - `boosted_weather` or an empty value
 	* `boosted_weather_emoji` - Outputs an emoji for the boosted weather
+	* `boosted_or_empty` - Outputs the word **boosted** if Raid/Mon is boosted
+	* `type1` - The name of the Monster's Primary Type or `?`
+	* `type1_or_empty` - The name of the Monster's Primary Type or Empty
+	* `type1_emoji` - The emoji for the Monster's Primary Type or Empty
+	* `type2` - The name of the Monster's Secondary Type or ?
+	* `type2_or_empty` - The name of the Monster's Secondary Type or Empty
+	* `type2_emoji` - The emoji for the Monster's Primary Type or Empty
+	* `types` - The Monster's Type formated as "type1/type2"
+	* `types_emoji` - The emoji for the Monster's Type(s) or Empty
 
-* **Raids & Eggs**
-    * `size` - Changed to support locales
+* **Eggs**
     * `weather` - Outputs the current weather conditions in the alert
 	* `weather_id` - Outputs the current weather condition id
 	* `weather_or_empty` - Same as `weather` or an empty value
-	* `weather_emoji` - Outputs a unicode emoji for the current weather
-    * `boosted_weather` - Outputs the weather conditions if boosted
-	* `boosted_weather_id` - Outputs the boosted weather condition id
-	* `boosted_weather_or_empty` - `boosted_weather` or an empty value
-	* `boosted_weather_emoji` - Outputs an emoji for the boosted weather   
+	* `weather_emoji` - Outputs a unicode emoji for the current weather  
 
 	
 ### Server Settings
 
 * **Performance Fixes** - Users should now see improved performance
-  and less system resources used overall.
+  and less system resource usage overall.
 
 
 ---
