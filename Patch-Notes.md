@@ -1,10 +1,138 @@
 ## Patch History
 
+* [Patch 3.6](#patch-36)
 * [Patch 3.5](#patch-35)
 * [Patch 3.4](#patch-34)
 * [Patch 3.3](#patch-33)
 * [Patch 3.2](#patch-32)
 * [Patch 3.1](#patch-31)
+
+---
+
+##### Patch 3.6
+
+This patch contains several breaking changes - make sure to read
+carefully, back up your current configuration, and have some free time
+before attempting to upgrade.
+
+#### Rules (Optional)
+
+**New Feature** - The "Rules" feature will allow users to create rules
+that dictate which filters trigger which alarms. Rules are loaded via
+a file containing a json object, which has 5 sections similar to the
+Filters file. Each section is a key-value pair of "rule names" to "rules".
+Each rule can be described as a json object containing just two fields: 
+"filters" and "alarms". Each field is an array of strings corresponding to
+the name of a filter or alarm from a manager. Rules cannot be loaded if
+they do not match an existing filter or alarm.
+
+Rules are evaluated by checking listed filters one by one (in order), until
+a match is found. Once a match is found, PA will them notify each alarm
+listed in the Rule. Every rule is always evaluated every time.
+
+Rules are an optional configuration setting and if no rules are set then PA
+will check every filter in the order that they are listed in the filters file
+and will target every alarm.
+
+Rules can be loaded via rules file with `-r` and `--rules` via commandline
+or `rules: rules.json` in the config.ini.
+
+Each rules file must be a key-value object with 5 (optional) sections:
+monsters, stops, gyms, eggs, and raids. The inner section must be a key-value
+object where the key is the rule's name, and the value is the rule's setting.
+
+Each rule can be described as follows:
+```json
+"example_rule" : {
+    "filters": [ "filter1", "filter2" ],
+    "alarms": [ "alarm1", "alarm2" ]
+}
+```
+
+#### Alarms 
+
+**Breaking Changes** - To fully take advantage of the "Rules" feature, the
+"Alarms" feature was changed to require a key-value json object instead of
+a list. Alarms should now be a list of "name" -> "alarm settings". 
+The alarms.json.example has been updated to match this.
+
+### Alert Sections
+
+The Alert sections of alarms has been updated to match the event names:
+
+* `pokemon` -> `monsters`
+* `pokestop` -> `stops`
+* `gym` -> `gyms`
+* `egg` -> `eggs`
+* `gym` -> `gyms`
+
+### Telegram 
+
+**Breaking Changes** - Telegram alarms have been reworked to resolve multiple
+issues and address Telegram API changes. 
+
+* **Content Changes** - Telegram now uses markdown instead of html to reduce 
+conflicts caused by using invalid DTS fields.
+* `title` and `body have been merged into `message` to better represent how
+the Telegram API actually treats messages.  The old behavior can be mimiced
+by using the following example content: `*TITLE GOES HERE*\n BODY GOES HERE`
+* **Field Changes** - The following fields have been changed:
+  * `bot_token`: Can now be set at an Alert level. DTS compatible.
+  * `chat_id`: Now DTS compatible.
+  * `stickers` -> `sticker`: Set to "true" for sticker with message, 
+ set to "false" for no sticker.
+  * `sticker_notify`: Whether or not sticker messages causes a notification. 
+  * `sticker_url`: Url to be used for the sticker. Must be .webp file.
+  * `location` -> `map`: true for map after message, false for no map.
+  * `map_notify`: Whether or not map messages causes a notification.
+  * `venue`: Sends the map and message in a single condensed format.
+  * `venue_notify`: Whether or not venue messages causes a notification.
+  * `max_retries`: Max attempts to send for each message.
+ (Telegram no longer uses the command line equivalent)
+
+### Filters 
+
+* Listed filters now evaluate in the order listed in the file.
+* The `"geofences" : [ "all" ]` shortcut now evaluates in the order that 
+the geofences are listed in the geofence file.
+* `gym_name_contains` is now case-insensitive.
+
+### Locale
+
+* Added multi-lingual support for the `Size` DTS & Filter setting. 
+
+### Dynamic Text Substitutions
+
+* **Pokemon**
+    * `size` - Changed to support locales
+    * `weather` - Outputs the current weather conditions in the alert
+	* `weather_id` - Outputs the current weather condition id
+	* `weather_or_empty` - Same as `weather` or an empty value
+	* `weather_emoji` - Outputs a unicode emoji for the current weather
+    * `boosted_weather` - Outputs the weather conditions if boosted
+	* `boosted_weather_id` - Outputs the boosted weather condition id
+	* `boosted_weather_or_empty` - `boosted_weather` or an empty value
+	* `boosted_weather_emoji` - Outputs an emoji for the boosted weather
+
+* **Raids & Eggs**
+    * `size` - Changed to support locales
+    * `weather` - Outputs the current weather conditions in the alert
+	* `weather_id` - Outputs the current weather condition id
+	* `weather_or_empty` - Same as `weather` or an empty value
+	* `weather_emoji` - Outputs a unicode emoji for the current weather
+    * `boosted_weather` - Outputs the weather conditions if boosted
+	* `boosted_weather_id` - Outputs the boosted weather condition id
+	* `boosted_weather_or_empty` - `boosted_weather` or an empty value
+	* `boosted_weather_emoji` - Outputs an emoji for the boosted weather   
+
+### Server Settings
+
+* Removed multiprocessing and gipc in favor of greenlets.  This reduces
+processing overhead and lowers overall resource consumption per manager.
+
+### Misc
+
+
 
 ---
 
