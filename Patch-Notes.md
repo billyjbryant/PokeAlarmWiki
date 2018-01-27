@@ -9,13 +9,14 @@
 
 ---
 
-##### Patch 3.6
+## Patch 3.6
 
 This patch contains several breaking changes - make sure to read
 carefully, back up your current configuration, and have some free time
 before attempting to upgrade.
 
-#### Rules (Optional)
+
+### Rules (Optional)
 
 **New Feature** - The "Rules" feature will allow users to create rules
 that dictate which filters trigger which alarms. Rules are loaded via
@@ -26,9 +27,9 @@ Each rule can be described as a json object containing just two fields:
 the name of a filter or alarm from a manager. Rules cannot be loaded if
 they do not match an existing filter or alarm.
 
-Rules are evaluated by checking listed filters one by one (in order), until
-a match is found. Once a match is found, PA will them notify each alarm
-listed in the Rule. Every rule is always evaluated every time.
+Rules are evaluated by checking the listed filters one by one (in order),
+until a match is found. Once a match is found, PA will them notify each alarm
+listed in the Rule. **Every** rule is always evaluated **every** time.
 
 Rules are an optional configuration setting and if no rules are set then PA
 will check every filter in the order that they are listed in the filters file
@@ -49,14 +50,16 @@ Each rule can be described as follows:
 }
 ```
 
-#### Alarms 
+
+### Alarms 
 
 **Breaking Changes** - To fully take advantage of the "Rules" feature, the
 "Alarms" feature was changed to require a key-value json object instead of
 a list. Alarms should now be a list of "name" -> "alarm settings". 
 The alarms.json.example has been updated to match this.
 
-### Alert Sections
+
+#### Changed Alert Sections
 
 The Alert sections of alarms has been updated to match the event names:
 
@@ -66,7 +69,18 @@ The Alert sections of alarms has been updated to match the event names:
 * `egg` -> `eggs`
 * `gym` -> `gyms`
 
-### Telegram 
+
+#### Alerts Converter
+
+A new tool has been added to `tools/convert_alarms_file.py`, this tool is
+designed to convert Alerts files from 3.5 and prior to the 3.6 alert format.
+
+**Usage**:
+```bash
+python convert_alarms_file.py /path/to/alarms.json```
+
+
+#### Telegram Changes
 
 **Breaking Changes** - Telegram alarms have been reworked to resolve multiple
 issues and address Telegram API changes. 
@@ -90,6 +104,7 @@ by using the following example content: `*TITLE GOES HERE*\n BODY GOES HERE`
   * `max_retries`: Max attempts to send for each message.
  (Telegram no longer uses the command line equivalent)
 
+
 ### Filters 
 
 * Listed filters now evaluate in the order listed in the file.
@@ -97,9 +112,11 @@ by using the following example content: `*TITLE GOES HERE*\n BODY GOES HERE`
 the geofences are listed in the geofence file.
 * `gym_name_contains` is now case-insensitive.
 
+
 ### Locale
 
 * Added multi-lingual support for the `Size` DTS & Filter setting. 
+
 
 ### Dynamic Text Substitutions
 
@@ -125,13 +142,11 @@ the geofences are listed in the geofence file.
 	* `boosted_weather_or_empty` - `boosted_weather` or an empty value
 	* `boosted_weather_emoji` - Outputs an emoji for the boosted weather   
 
+	
 ### Server Settings
 
-* Removed multiprocessing and gipc in favor of greenlets.  This reduces
-processing overhead and lowers overall resource consumption per manager.
-
-### Misc
-
+* **Performance Fixes** - Users should now see improved performance
+  and less system resources used overall.
 
 
 ---
