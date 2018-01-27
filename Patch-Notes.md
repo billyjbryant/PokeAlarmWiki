@@ -169,6 +169,18 @@ greater control over event alerts than what was previously supported via the
   and less system resource usage overall.
 
 
+### Bug Fixes
+
+* **Twitter Alarms**
+     * Maximum length has been extended to 280 characters to match Twitter
+	 standards and settings
+	 * All URLs are now counted as 23 characters towards the overall
+	 character limit detection. URLs that would cause the tweet to exceed
+	 280 characters will be dropped from the tweet.
+	 * DTS is now evaluated before the length of the status update is
+	 calculated. This corrects issues with improper Twitter Status Truncation
+
+
 ---
 
 ## Patch 3.5
