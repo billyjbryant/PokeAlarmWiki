@@ -35,12 +35,19 @@ Rules are an optional configuration setting and if no rules are set then PA
 will check every filter in the order that they are listed in the filters file
 and will target every alarm.
 
-Rules can be loaded via rules file with `-r` and `--rules` via commandline
-or `rules: rules.json` in the config.ini.
+Rules can be loaded via a rules file with `-r` and `--rules` via commandline
+or `rules: rules.json` in config.ini.
 
-Each rules file must be a key-value object with 5 (optional) sections:
-monsters, stops, gyms, eggs, and raids. The inner section must be a key-value
-object where the key is the rule's name, and the value is the rule's setting.
+Each rules file must be configured key-value objects and contain at least one
+or more of following rules sections:
+* `monsters`
+* `stops`
+* `gyms`
+* `eggs`
+* `raids`
+
+The inner section of each rule must be configured as a key-value object where
+the key is the rule's name, and the value is the rule's setting.
 
 Each rule can be described as follows:
 ```json
@@ -87,7 +94,9 @@ python convert_alarms_file.py /path/to/alarms.json
 issues and address Telegram API changes. 
 
 * **Content Changes** - Telegram now uses markdown instead of html to reduce 
-conflicts caused by using invalid DTS fields.
+conflicts caused by using invalid DTS fields. Existing alerts will have to be
+reconfigured to make this change.
+* The `venue` field does not support markdown or html coding
 * `title` and `body` have been merged into `message` to better represent how
 the Telegram API actually treats messages.  The old behavior can be mimiced
 by using the following example content: `*TITLE GOES HERE*\n BODY GOES HERE`
