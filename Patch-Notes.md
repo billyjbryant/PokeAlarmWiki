@@ -147,20 +147,20 @@ greater control over event alerts than what was previously supported via the
 	* `boosted_weather_or_empty` - `boosted_weather` or an empty value
 	* `boosted_weather_emoji` - Outputs an emoji for the boosted weather
 	* `boosted_or_empty` - Outputs the word **boosted** if Raid/Mon is boosted
-	* `type1` - The name of the Monster's Primary Type or `?`
-	* `type1_or_empty` - The name of the Monster's Primary Type or Empty
-	* `type1_emoji` - The emoji for the Monster's Primary Type or Empty
-	* `type2` - The name of the Monster's Secondary Type or ?
-	* `type2_or_empty` - The name of the Monster's Secondary Type or Empty
-	* `type2_emoji` - The emoji for the Monster's Primary Type or Empty
-	* `types` - The Monster's Type formated as "type1/type2"
-	* `types_emoji` - The emoji for the Monster's Type(s) or Empty
+	* `type1` - Outputs the name of the Monster's Primary Type or `?`
+	* `type1_or_empty` - Same as `type1` or an empty value
+	* `type1_emoji` - Outputs an emoji for the Monster's Primary Type or Empty
+	* `type2` - Outputs the name of the Monster's Secondary Type or ?
+	* `type2_or_empty` - Same as `type2` or an empty value
+	* `type2_emoji` - Outputs an emoji for the Monster's Primary Type or Empty
+	* `types` - Outputs the Monster's Type formated as "type1/type2"
+	* `types_emoji` - Outputs an emoji for the Monster's Type(s) or Empty
 
 * **Eggs**
     * `weather` - Outputs the current weather conditions in the alert
 	* `weather_id` - Outputs the current weather condition id
 	* `weather_or_empty` - Same as `weather` or an empty value
-	* `weather_emoji` - Outputs a unicode emoji for the current weather  
+	* `weather_emoji` - Outputs an emoji for the current weather conditions 
 
 	
 ### Server Settings
