@@ -77,7 +77,8 @@ designed to convert Alerts files from 3.5 and prior to the 3.6 alert format.
 
 **Usage**:
 ```bash
-python convert_alarms_file.py /path/to/alarms.json```
+python convert_alarms_file.py /path/to/alarms.json
+```
 
 
 #### Telegram Changes
