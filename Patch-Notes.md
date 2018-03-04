@@ -90,17 +90,6 @@ The following Move Type DTS fields have been added to both **Monster** and
 | charge_type      | The name of the Charge Move's Type or `Unknown`         |
 | charge_type_emoji | The emoji for the Charge Move's Type or Empty          |
 
-#### Forms
-
-The `Form` DTS Fields have been added to **Raid** alerts 
-
-| DTS              | Description                                             |
-|----------------- |-------------------------------------------------------- |
-| height_0         | Height of the monster, rounded to the nearest integer   |
-| height_2         | Height of the monster, rounded to 2 decimal places      |
-| weight_0         | Weight of the monster, rounded to the nearest integer   |
-| weight_2         | Weight of the monster, rounded to 2 decimal places      |
-
 #### Catch & Probability Rating
 
 The following DTS Fields have been added to **Monster** alerts
@@ -116,6 +105,17 @@ The following DTS Fields have been added to **Monster** alerts
 #### Height and Weight
 
 The following DTS fields have been added to **Monster** alerts
+
+| DTS              | Description                                             |
+|----------------- |-------------------------------------------------------- |
+| height_0         | Height of the monster, rounded to the nearest integer   |
+| height_2         | Height of the monster, rounded to 2 decimal places      |
+| weight_0         | Weight of the monster, rounded to the nearest integer   |
+| weight_2         | Weight of the monster, rounded to 2 decimal places      |
+
+#### Forms
+
+The `Form` DTS Fields have also been added to **Raid** alerts 
 
 #### Weather
 
